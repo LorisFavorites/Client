@@ -14,6 +14,12 @@ export default function Header() {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
   };
 
+  const handleHover = (event) => {
+    setCurrentIndex(event.target.key);
+    console.log(event.target.className);
+    event.target.className = (event.target.className == 'item active') ? "item" : "item active";
+  }
+
   return (
     <>
       <div className="heading-title">
@@ -30,6 +36,8 @@ export default function Header() {
                 key={index}
                 className={classNames}
                 htmlFor={`t-${testimonial}`}
+                onMouseEnter={handleHover}
+                onMouseLeave={handleHover}
               ></label>
             );
           })}
