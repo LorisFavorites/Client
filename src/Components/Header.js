@@ -16,6 +16,9 @@ export default function Header() {
 
   return (
     <>
+      <div className="heading-title">
+        <h2>This is the title</h2>
+      </div>
       <div className="slider">
         <div className="testimonials">
           {testimonials.map((testimonial, index) => {
