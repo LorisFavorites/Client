@@ -1,3 +1,7 @@
+html {
+  background-color: #222;
+}
+
 .App {
   text-align: center;
 }
@@ -82,6 +86,20 @@ nav {
 
 .x-icon:hover {
   cursor: pointer;
+}
+
+.nav-background {
+  display: none;
+}
+
+.nav-background.open {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #222;
+  opacity: 0.5;
+  z-index: 2;
 }
 
 /* Home  */
@@ -176,6 +194,69 @@ nav {
 .prev-button:hover,
 .next-button:hover {
   cursor: pointer;
+}
+
+/* Products */
+
+.products {
+  border: 1px solid white;
+  background-color: #fff;
+  height: 500px;
+}
+
+/* Login */
+
+.login {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 90%;
+  background-color: #222;
+  z-index: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  width: 300px;
+  height: 300px;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  transform: translate(-50%, -50%);
+}
+
+form h1 {
+  margin-top: -10px;
+  margin-bottom: 5px;
+}
+
+form input {
+  margin-top: 15px;
+  height: 25px;
+  width: 100%;
+  outline: none;
+}
+
+form button {
+  width: 50%;
+  height: 35px;
+  margin-top: 15px;
+  border: none;
+  background-color: springgreen;
+  color: white;
+  border-radius: 7px;
+  font-weight: 700;
 }
 
 /* Media Queries */

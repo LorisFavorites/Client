@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import Products from "./Products";
 
-export default function Header() {
+export default function Header({ setIsNavOpen }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const testimonials = [1, 2, 3, 4, 5];
+
+  useEffect(() => {
+    setIsNavOpen(false);
+  }, []);
 
   const handlePrevClick = () => {
     setCurrentIndex(
@@ -27,9 +32,7 @@ export default function Header() {
                 key={index}
                 className={classNames}
                 htmlFor={`t-${testimonial}`}
-              >
-                <h1>{testimonial}</h1>
-              </label>
+              ></label>
             );
           })}
         </div>
@@ -42,6 +45,8 @@ export default function Header() {
           <i class="fa-solid fa-chevron-right"></i>
         </button>
       </div>
+
+      <Products />
     </>
   );
 }
