@@ -61,9 +61,8 @@ export default function Header({ setIsNavOpen }) {
                 key={index}
                 className={classNames}
                 htmlFor={`t-${testimonial}`}
-              >
-                <img src={testimonial.images.small} />
-              </label>
+                style={{ backgroundImage: `url(${testimonial.images.small})` }}
+              ></label>
             );
           })}
         </div>

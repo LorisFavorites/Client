@@ -140,26 +140,29 @@ nav {
   width: 20%;
   height: 225px;
   border-radius: 5px;
-  background-color: green;
   box-sizing: border-box;
   text-align: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   user-select: none;
   cursor: pointer;
   transition: transform 0.4s;
+  background-color: transparent; /* Remove the background color */
+  background-size: cover;
+  background-position: center;
 }
 
 .testimonials .item.active {
   transform: scale(1);
   z-index: 1;
+  background-color: green; /* Add the background color for the active card */
 }
 
 .testimonials .item:not(.active) {
   transform: translateY(-20%) perspective(200px) rotateY(-180deg) scale(0.9);
-  background-image: url(https://www.pngkit.com/png/full/241-2416981_pokemon-card-back-png-pokemon-tcg-card-back.png);
+  background-image: url(https://www.pngkit.com/png/full/241-2416981_pokemon-card-back-png-pokemon-tcg-card-back.png) !important;
   background-size: cover;
   background-position: center;
-  background-color: transparent;
+  background-color: transparent; /* Remove the background color */
 }
 
 .buttons {
@@ -188,7 +191,7 @@ nav {
 }
 
 .next-button {
-  left: 625px;
+  left: 640px;
 }
 
 .prev-button:hover,
