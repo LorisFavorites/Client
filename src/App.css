@@ -33,7 +33,7 @@ html {
 
 nav {
   margin-top: 30px;
-  line-height: 2.8rem;
+  line-height: 3rem;
   margin-left: 10px;
 }
 
@@ -53,6 +53,11 @@ nav {
 
 .nav-menu a.active-link {
   font-weight: bold;
+}
+
+.nav-menu i {
+  font-size: 32px;
+  margin-inline-end: 20px;
 }
 
 .hamburger-icon {

@@ -45,19 +45,19 @@ export default function Nav() {
           <div className="nav-menu">
             <nav>
               <NavLink to="" activeClassName="active-link">
-                Home
+                <i class="fa-solid fa-house"></i>Home
               </NavLink>
               <br />
               <NavLink to="login" activeClassName="active-link">
-                Login
+                <i class="fa-solid fa-user"></i> Login
               </NavLink>
               <br />
               <NavLink to="mycards" activeClassName="active-link">
-                My Cards
+                <i class="fa-solid fa-bookmark"></i> My Cards
               </NavLink>
               <br />
               <NavLink to="account" activeClassName="active-link">
-                My Account
+                <i class="fa-solid fa-gear"></i> My Account
               </NavLink>
             </nav>
           </div>
