@@ -41,23 +41,34 @@ export default function Nav() {
           className={`nav-background ${isNavOpen ? "open" : ""}`}
           onClick={toggleNav}
         ></div>
+
+        {/* nav-bar will have a class of open adding to it if isNavOpen is true */}
         <div className={`nav-bar ${isNavOpen ? "open" : ""}`}>
           <div className="nav-menu">
             <nav>
               <NavLink to="" activeClassName="active-link">
-                <i class="fa-solid fa-house"></i>Home
+                <div className="link">
+                  <i class="fa-solid fa-house"></i>
+                  <p>Home</p>
+                </div>
               </NavLink>
               <br />
               <NavLink to="login" activeClassName="active-link">
-                <i class="fa-solid fa-user"></i> Login
+                <div className="link">
+                  <i class="fa-solid fa-user"></i> <p>Login</p>
+                </div>
               </NavLink>
               <br />
               <NavLink to="mycards" activeClassName="active-link">
-                <i class="fa-solid fa-bookmark"></i> My Cards
+                <div className="link">
+                  <i class="fa-solid fa-bookmark"></i> <p>My Cards</p>
+                </div>
               </NavLink>
               <br />
               <NavLink to="account" activeClassName="active-link">
-                <i class="fa-solid fa-gear"></i> My Account
+                <div className="link">
+                  <i class="fa-solid fa-gear"></i> <p>My Account</p>
+                </div>
               </NavLink>
             </nav>
           </div>
