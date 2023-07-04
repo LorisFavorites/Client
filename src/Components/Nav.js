@@ -10,6 +10,11 @@ export default function Nav() {
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
+    if (!isNavOpen) {
+      document.documentElement.style.overflow = "hidden"; // Disable scrolling
+    } else {
+      document.documentElement.style.overflow = "auto"; // Enable scrolling
+    }
   };
 
   return (
