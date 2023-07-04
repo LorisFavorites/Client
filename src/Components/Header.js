@@ -16,9 +16,6 @@ export default function Header() {
 
   return (
     <>
-      <div className="heading-title">
-        <h2>This is the title</h2>
-      </div>
       <div className="slider">
         <div className="testimonials">
           {testimonials.map((testimonial, index) => {
@@ -30,17 +27,19 @@ export default function Header() {
                 key={index}
                 className={classNames}
                 htmlFor={`t-${testimonial}`}
-              ></label>
+              >
+                <h1>{testimonial}</h1>
+              </label>
             );
           })}
         </div>
       </div>
       <div className="buttons">
         <button className="prev-button" onClick={handlePrevClick}>
-          Prev
+          <i class="fa-solid fa-chevron-left"></i>
         </button>
         <button className="next-button" onClick={handleNextClick}>
-          Next
+          <i class="fa-solid fa-chevron-right"></i>
         </button>
       </div>
     </>

@@ -2,6 +2,90 @@
   text-align: center;
 }
 
+.name {
+  position: absolute;
+  color: white;
+  top: -10px;
+  left: 50px;
+}
+
+/* Nav Menu */
+
+.nav-bar {
+  display: none;
+  border: 1px solid green;
+  background-color: #222;
+}
+
+.nav-bar.open {
+  display: flex;
+  height: 100%;
+  width: 20%;
+  position: absolute;
+  background-color: white;
+  z-index: 2;
+  text-align: left;
+}
+
+nav {
+  margin-top: 30px;
+  line-height: 2.3rem;
+  margin-left: 10px;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-menu a {
+  color: #000;
+  text-decoration: none;
+  font-size: 18px;
+  margin-bottom: 0px;
+}
+
+.nav-menu a.active-link {
+  font-weight: bold;
+}
+
+.hamburger-icon {
+  position: absolute;
+  left: 10px;
+  top: 5px;
+  color: white;
+  font-size: 25px;
+}
+
+.hamburger-icon.open {
+  display: none;
+}
+
+.hamburger-icon:hover {
+  cursor: pointer;
+}
+
+.x-icon {
+  display: none;
+}
+
+.x-icon.open {
+  display: block;
+  position: absolute;
+  left: 400px;
+  top: 0px;
+  color: black;
+  font-size: 25px;
+  z-index: 3;
+}
+
+.x-icon:hover {
+  cursor: pointer;
+}
+
+/* Home  */
+
 .heading-title {
   position: absolute;
   color: white;
@@ -12,7 +96,7 @@
 
 .slider {
   background-color: #222;
-  height: 100vh;
+  height: 470px;
   color: white;
   display: flex;
   align-items: center;
@@ -24,10 +108,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 100vw;
+  top: 20px;
   padding: 20px;
-  border: 1px solid white;
-  height: 450px;
+  height: 400px;
   position: relative;
   overflow: hidden;
 }
@@ -49,7 +133,7 @@
 
 .testimonials .item.active {
   transform: scale(1.1);
-  z-index: 2;
+  z-index: 1;
 }
 
 .testimonials .item:not(.active) {
@@ -62,9 +146,9 @@
 
 .buttons {
   position: absolute;
-  bottom: 170px;
+  top: 25%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -73,8 +157,82 @@
 .prev-button,
 .next-button {
   margin-top: 20px;
+  position: absolute;
+  height: 45px;
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 25px;
 }
 
 .prev-button {
-  margin-right: 10px;
+  right: 650px;
+}
+
+.next-button {
+  left: 625px;
+}
+
+.prev-button:hover,
+.next-button:hover {
+  cursor: pointer;
+}
+
+/* Media Queries */
+
+@media screen and (min-width: 2000px) {
+  .testimonials .item {
+    height: 300px;
+    width: 50% !important;
+  }
+}
+
+@media screen and (max-width: 416px) {
+  .slider {
+    height: 550px;
+  }
+
+  .nav-bar.open {
+    width: 55%;
+  }
+
+  .x-icon.open {
+    left: 195px;
+  }
+
+  .slider {
+    overflow: hidden;
+  }
+
+  .testimonials {
+    position: absolute;
+    top: 50px;
+    height: 500px;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .testimonials .item {
+    position: absolute;
+    /* flex: 0 0 25%; */
+    height: 350px;
+    width: 250px;
+  }
+
+  .buttons {
+    bottom: 150px;
+  }
+
+  .prev-button,
+  .next-button {
+    top: 300px;
+  }
+
+  .prev-button {
+    right: 150px;
+  }
+
+  .next-button {
+    left: 150px;
+  }
 }
