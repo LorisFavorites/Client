@@ -45,6 +45,7 @@ export default function Nav() {
         {/* nav-bar will have a class of open adding to it if isNavOpen is true */}
         <div className={`nav-bar ${isNavOpen ? "open" : ""}`}>
           <div className="nav-menu">
+            <h2 className="title-menu">PokeFindr</h2>
             <nav>
               <NavLink to="" activeClassName="active-link">
                 <div className="link">

@@ -32,10 +32,16 @@ html {
 }
 
 nav {
-  margin-top: 30px;
+  margin-top: 50px;
   line-height: 1rem;
   margin-left: 10px;
   width: 220px;
+}
+
+.title-menu {
+  position: absolute;
+  top: -22px;
+  left: 10px;
 }
 
 .nav-menu {
@@ -278,8 +284,8 @@ form {
   align-items: center;
   justify-content: center;
   margin-top: 100px;
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
   padding: 20px;
   border-radius: 15px;
   background-color: white;
@@ -352,6 +358,22 @@ form button {
   color: white;
   border-radius: 7px;
   font-weight: 700;
+}
+
+.inputs {
+  width: 100%;
+  text-align: left;
+  position: relative;
+  left: -4px;
+}
+
+.inputs input {
+  height: 27px;
+  margin-top: 10px;
+}
+
+.inputs p {
+  margin-top: -7px;
 }
 
 /* Media Queries */
