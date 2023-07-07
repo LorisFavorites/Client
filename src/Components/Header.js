@@ -6,7 +6,7 @@ import axios from "axios";
 export default function Header({ setIsNavOpen }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [data, setData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true); // Add loading state
+  const [isLoading, setIsLoading] = useState(true);
   const [testimonials, setTestimonials] = useState([]);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function Header({ setIsNavOpen }) {
   useEffect(() => {
     console.log("Data:", data);
     if (data) {
-      setIsLoading(false); // Mark loading as false when data is available
+      setIsLoading(false);
       setTestimonials(data.slice(0, 5));
     }
   }, [data]);
@@ -43,8 +43,12 @@ export default function Header({ setIsNavOpen }) {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
   };
 
+  const handleTestimonialClick = (index) => {
+    setCurrentIndex(index);
+  };
+
   if (isLoading) {
-    return <Loading />; // Display a loading message or spinner
+    return <Loading />;
   }
 
   return (
@@ -61,6 +65,7 @@ export default function Header({ setIsNavOpen }) {
                 className={classNames}
                 htmlFor={`t-${testimonial}`}
                 style={{ backgroundImage: `url(${testimonial.images.small})` }}
+                onClick={() => handleTestimonialClick(index)} // Add onClick handler
               ></label>
             );
           })}
