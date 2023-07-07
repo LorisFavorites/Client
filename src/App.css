@@ -412,7 +412,7 @@ form button {
   .testimonials .item {
     position: absolute;
     /* flex: 0 0 25%; */
-    height: 350px;
+    height: 350px !important;
     width: 250px;
   }
 
