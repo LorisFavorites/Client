@@ -239,18 +239,43 @@ nav {
 .spinner {
   width: 50px;
   height: 50px;
-  border: 8px solid #f3f3f3;
-  border-top: 8px solid #3498db;
+  /* border: 8px solid #ff0000; */
+  border-left: 8px solid #f3f3f3;
+  border-right: 8px solid #ff0000;
+  border-top: 8px solid #f3f3f3;
+  border-bottom: 8px solid #ff0000;
   border-radius: 50%;
+  position: relative;
   animation: spin 1s linear infinite;
+}
+
+.spinner::before,
+.spinner::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f3f3f3;
+  border-radius: 50%;
+}
+
+.spinner::before {
+  width: 18px;
+  height: 18px;
+}
+
+.spinner::after {
+  width: 12px;
+  height: 12px;
 }
 
 @keyframes spin {
   0% {
-    transform: rotate(0deg);
+    transform: translate(-50%, -50%) rotate(0deg);
   }
   100% {
-    transform: rotate(360deg);
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
 
