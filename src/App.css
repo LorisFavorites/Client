@@ -378,13 +378,8 @@ form button {
 /* Media Queries */
 
 @media screen and (min-width: 2000px) {
-  .testimonials {
-    height: 500px;
-    margin-top: -10px;
-  }
-
   .testimonials .item {
-    height: 450px !important;
+    height: 300px !important;
     width: 50% !important;
   }
 }
