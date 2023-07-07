@@ -1,6 +1,133 @@
+html {
+  background-color: #222;
+}
+
 .App {
   text-align: center;
 }
+
+.name {
+  position: absolute;
+  color: white;
+  top: -10px;
+  left: 50px;
+}
+
+/* Nav Menu */
+
+.nav-bar {
+  display: none;
+  border: 1px solid green;
+  background-color: #222;
+}
+
+.nav-bar.open {
+  display: flex;
+  height: 100%;
+  width: 20%;
+  position: absolute;
+  background-color: white;
+  z-index: 2;
+  text-align: left;
+}
+
+nav {
+  margin-top: 50px;
+  line-height: 1rem;
+  margin-left: 10px;
+  width: 220px;
+}
+
+.title-menu {
+  position: absolute;
+  top: -22px;
+  left: 10px;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-menu a {
+  color: #000;
+  text-decoration: none;
+  font-size: 28px;
+  margin-bottom: 0px;
+  font-weight: 300;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+}
+
+.link p {
+  position: relative;
+  right: -10px;
+  top: 5px;
+  height: 30px;
+}
+
+.nav-menu a.active-link {
+  font-weight: bold;
+}
+
+.nav-menu i {
+  width: 30px;
+  height: 30px;
+}
+
+.hamburger-icon {
+  position: absolute;
+  left: 10px;
+  top: 5px;
+  color: white;
+  font-size: 25px;
+}
+
+.hamburger-icon.open {
+  display: none;
+}
+
+.hamburger-icon:hover {
+  cursor: pointer;
+}
+
+.x-icon {
+  display: none;
+}
+
+.x-icon.open {
+  display: block;
+  position: absolute;
+  left: 400px;
+  top: 0px;
+  color: black;
+  font-size: 25px;
+  z-index: 3;
+}
+
+.x-icon:hover {
+  cursor: pointer;
+}
+
+.nav-background {
+  display: none;
+}
+
+.nav-background.open {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #222;
+  opacity: 0.5;
+  z-index: 2;
+}
+
+/* Home  */
 
 .heading-title {
   position: absolute;
@@ -12,7 +139,7 @@
 
 .slider {
   background-color: #222;
-  height: 100vh;
+  height: 470px;
   color: white;
   display: flex;
   align-items: center;
@@ -24,9 +151,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 100vw;
+  top: 20px;
   padding: 20px;
-  height: 450px;
+  height: 400px;
   position: relative;
   overflow: hidden;
 }
@@ -34,36 +162,39 @@
 .testimonials .item {
   flex: 0 0 10%;
   margin: 0 5px;
-  width: 10%;
-  height: 300px;
+  width: 20%;
+  height: 225px;
   border-radius: 5px;
-  background-color: green;
   box-sizing: border-box;
   text-align: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   user-select: none;
   cursor: pointer;
   transition: transform 0.4s;
+  background-color: transparent; /* Remove the background color */
+  background-size: cover;
+  background-position: center;
 }
 
 .testimonials .item.active {
-  transform: scale(1.1);
-  z-index: 2;
+  transform: scale(1);
+  z-index: 1;
+  background-color: green; /* Add the background color for the active card */
 }
 
 .testimonials .item:not(.active) {
   transform: translateY(-20%) perspective(200px) rotateY(-180deg) scale(0.9);
-  background-image: url(https://www.pngkit.com/png/full/241-2416981_pokemon-card-back-png-pokemon-tcg-card-back.png);
+  background-image: url(https://www.pngkit.com/png/full/241-2416981_pokemon-card-back-png-pokemon-tcg-card-back.png) !important;
   background-size: cover;
   background-position: center;
-  background-color: transparent;
+  background-color: transparent; /* Remove the background color */
 }
 
 .buttons {
   position: absolute;
-  bottom: 170px;
+  top: 25%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,8 +203,234 @@
 .prev-button,
 .next-button {
   margin-top: 20px;
+  position: absolute;
+  height: 45px;
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 25px;
 }
 
 .prev-button {
-  margin-right: 10px;
+  right: 650px;
+}
+
+.next-button {
+  left: 640px;
+}
+
+.prev-button:hover,
+.next-button:hover {
+  cursor: pointer;
+}
+
+/* Spinning Loader */
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Products */
+
+.products {
+  border: 1px solid white;
+  background-color: #fff;
+  height: 500px;
+}
+
+/* Login */
+
+.login {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 90%;
+  background-color: #222;
+  z-index: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  width: 400px;
+  height: 400px;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  transform: translate(-50%, -50%);
+}
+
+.login-signup {
+  width: 100%;
+  position: absolute;
+  top: -15px;
+}
+
+.button-login,
+.button-signup {
+  width: 50%;
+  height: 55px;
+  border: none;
+  font-weight: 700;
+  border-radius: 15px;
+  background-color: rgba(128, 128, 128, 0.7);
+  color: black;
+}
+
+.button-login:hover,
+.button-signup:hover {
+  cursor: pointer;
+}
+
+.button-login.active,
+.button-signup.active {
+  background-color: grey;
+  opacity: 1; /* Change the active button color here */
+  color: white;
+}
+
+.button-login {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.button-signup {
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+form h1 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+form input {
+  margin-top: 15px;
+  margin-bottom: 7px;
+  height: 30px;
+  width: 100%;
+  outline: none;
+}
+
+form button {
+  width: 50%;
+  height: 35px;
+  margin-top: 15px;
+  border: none;
+  background-color: springgreen;
+  color: white;
+  border-radius: 7px;
+  font-weight: 700;
+}
+
+.inputs {
+  width: 100%;
+  text-align: left;
+  position: relative;
+  left: -4px;
+}
+
+.inputs input {
+  height: 27px;
+  margin-top: 10px;
+}
+
+.inputs p {
+  margin-top: -7px;
+}
+
+/* Media Queries */
+
+@media screen and (min-width: 2000px) {
+  .testimonials .item {
+    height: 300px;
+    width: 50% !important;
+  }
+}
+
+@media screen and (max-width: 416px) {
+  .slider {
+    height: 550px;
+  }
+
+  .nav-bar.open {
+    width: 70%;
+  }
+
+  .x-icon.open {
+    left: 255px;
+  }
+
+  .slider {
+    overflow: hidden;
+  }
+
+  .testimonials {
+    position: absolute;
+    top: 50px;
+    height: 500px;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .testimonials .item {
+    position: absolute;
+    /* flex: 0 0 25%; */
+    height: 350px;
+    width: 250px;
+  }
+
+  .buttons {
+    bottom: 150px;
+  }
+
+  .prev-button,
+  .next-button {
+    top: 300px;
+  }
+
+  .prev-button {
+    right: 150px;
+  }
+
+  .next-button {
+    left: 150px;
+  }
 }

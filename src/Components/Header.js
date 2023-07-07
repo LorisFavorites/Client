@@ -1,8 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import Products from "./Products";
+import Loading from "./Loading";
+import axios from "axios";
 
-export default function Header() {
+export default function Header({ setIsNavOpen }) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const testimonials = [1, 2, 3, 4, 5];
+  const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true); // Add loading state
+  const [testimonials, setTestimonials] = useState([]);
+
+  useEffect(() => {
+    setIsNavOpen(false);
+    fetchData(1);
+  }, []);
+
+  useEffect(() => {
+    console.log("Data:", data);
+    if (data) {
+      setIsLoading(false); // Mark loading as false when data is available
+      setTestimonials(data.slice(0, 5));
+    }
+  }, [data]);
+
+  const fetchData = async (page) => {
+    try {
+      const response = await axios.get("https://api.pokemontcg.io/v2/cards", {
+        params: { page },
+      });
+      setData(response.data.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   const handlePrevClick = () => {
     setCurrentIndex(
@@ -14,17 +43,12 @@ export default function Header() {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
   };
 
-  const handleHover = (event) => {
-    setCurrentIndex(event.target.key);
-    console.log(event.target.className);
-    event.target.className = (event.target.className == 'item active') ? "item" : "item active";
+  if (isLoading) {
+    return <Loading />; // Display a loading message or spinner
   }
 
   return (
     <>
-      <div className="heading-title">
-        <h2>This is the title</h2>
-      </div>
       <div className="slider">
         <div className="testimonials">
           {testimonials.map((testimonial, index) => {
@@ -36,8 +60,7 @@ export default function Header() {
                 key={index}
                 className={classNames}
                 htmlFor={`t-${testimonial}`}
-                onMouseEnter={handleHover}
-                onMouseLeave={handleHover}
+                style={{ backgroundImage: `url(${testimonial.images.small})` }}
               ></label>
             );
           })}
@@ -45,12 +68,14 @@ export default function Header() {
       </div>
       <div className="buttons">
         <button className="prev-button" onClick={handlePrevClick}>
-          Prev
+          <i className="fa-solid fa-chevron-left"></i>
         </button>
         <button className="next-button" onClick={handleNextClick}>
-          Next
+          <i className="fa-solid fa-chevron-right"></i>
         </button>
       </div>
+
+      <Products data={data} />
     </>
   );
 }
