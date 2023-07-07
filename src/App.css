@@ -17,7 +17,6 @@ html {
 
 .nav-bar {
   display: none;
-  border: 1px solid green;
   background-color: #222;
 }
 
@@ -379,8 +378,29 @@ form button {
 /* Media Queries */
 
 @media screen and (min-width: 2000px) {
+  .slider {
+    height: 550px;
+  }
+
+  .testimonials {
+    height: 500px;
+    margin-top: -10px;
+  }
+
   .testimonials .item {
-    height: 300px;
+    height: 350px !important;
+    width: 50% !important;
+  }
+
+  /* .prev-button,
+  .next-button {
+    top: 20px;
+  } */
+}
+
+@media screen and (min-width: 1280px) {
+  .testimonials .item {
+    height: 200px;
     width: 50% !important;
   }
 }
@@ -395,7 +415,7 @@ form button {
   }
 
   .x-icon.open {
-    left: 255px;
+    left: 265px;
   }
 
   .slider {
@@ -415,6 +435,39 @@ form button {
     /* flex: 0 0 25%; */
     height: 350px;
     width: 250px;
+  }
+
+  .buttons {
+    bottom: 150px;
+  }
+
+  .prev-button,
+  .next-button {
+    top: 300px;
+  }
+
+  .prev-button {
+    right: 150px;
+  }
+
+  .next-button {
+    left: 150px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .x-icon.open {
+    left: 247px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .nav-bar.open {
+    width: 70%;
+  }
+
+  .x-icon.open {
+    left: 227px;
   }
 
   .buttons {
