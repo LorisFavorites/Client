@@ -183,10 +183,10 @@ nav {
 
 .testimonials .item:not(.active) {
   transform: translateY(-20%) perspective(200px) rotateY(-180deg) scale(0.9);
-  background-image: url(https://www.pngkit.com/png/full/241-2416981_pokemon-card-back-png-pokemon-tcg-card-back.png) !important;
+  background-image: url("../public/card-back.png") !important;
   background-size: cover;
   background-position: center;
-  background-color: transparent; /* Remove the background color */
+  background-color: transparent;
 }
 
 .buttons {
@@ -239,9 +239,8 @@ nav {
 .spinner {
   width: 50px;
   height: 50px;
-  /* border: 8px solid #ff0000; */
+  border: 8px solid #ff0000;
   border-left: 8px solid #f3f3f3;
-  border-right: 8px solid #ff0000;
   border-top: 8px solid #f3f3f3;
   border-bottom: 8px solid #ff0000;
   border-radius: 50%;
@@ -403,8 +402,13 @@ form button {
 /* Media Queries */
 
 @media screen and (min-width: 2000px) {
+  .testimonials {
+    height: 500px;
+    margin-top: -10px;
+  }
+
   .testimonials .item {
-    height: 300px !important;
+    height: 450px !important;
     width: 50% !important;
   }
 }
@@ -437,7 +441,7 @@ form button {
   .testimonials .item {
     position: absolute;
     /* flex: 0 0 25%; */
-    height: 350px !important;
+    height: 350px;
     width: 250px;
   }
 
