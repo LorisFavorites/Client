@@ -34,23 +34,32 @@ export default function Products(props) {
 
       return 0;
     })
-    // console.log("Sort:", sortedCards);
+    console.log("Sort:", sortedCards);
     setCards(sortedCards);
-  };
+    // setSplicedCards(cards.slice(0, 50));
 
-  useEffect(() => {
-    // console.log("Cards:", cards);
-    setSplicedCards(cards.slice(0, 50));
-    // console.log("Spliced:", splicedCards);
-    cardsArray.push(splicedCards);
-    setSplicedCards([]);
-  }, []);
+  };
 
   return (
     <>
-      <div className="products">
-        <h1>Products</h1>
+      <div className="slider">
+        <div className="testimonials">
+          {cards.slice(0, 50).map((testimonial, index) => {
+            const classNames = `item active`;
+
+            return (
+              <label
+                key={index}
+                className={classNames}
+                htmlFor={`t-${testimonial}`}
+                style={{ backgroundImage: `url(${testimonial.images.small})` }}
+              ></label>
+            );
+          })}
+        </div>
       </div>
+      
+      <Products data={data} />
     </>
   );
 }
