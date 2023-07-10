@@ -152,17 +152,14 @@ nav {
   justify-content: center;
   width: 100vw;
   top: 20px;
-  padding: 20px;
-  height: 400px;
+  padding: 5%;
   position: relative;
   overflow: hidden;
 }
 
 .testimonials .item {
-  flex: 0 0 10%;
+  flex: 0 0 17%;
   margin: 0 5px;
-  width: 20%;
-  height: 255px;
   border-radius: 5px;
   box-sizing: border-box;
   text-align: center;
@@ -170,15 +167,16 @@ nav {
   user-select: none;
   cursor: pointer;
   transition: transform 0.4s;
-  background-color: transparent; /* Remove the background color */
+  background-color: transparent;
   background-size: cover;
   background-position: center;
+  padding-bottom: 24%;
 }
 
 .testimonials .item.active {
   transform: scale(1);
   z-index: 1;
-  background-color: green; /* Add the background color for the active card */
+  background-color: green;
 }
 
 .testimonials .item:not(.active) {
