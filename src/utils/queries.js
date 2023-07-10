@@ -12,3 +12,25 @@ export const QUERY_SINGLE_PROFILE = gql`
     }
   }
 `;
+
+export const QUERY_INVENTORY = gql`
+  query inventories {
+    _id
+    name
+    cards {
+      itemId
+      stock
+    }
+  }
+`
+
+export const QUERY_FAVORITES = gql`
+  query favorites {
+    favorites {
+      _id
+      name
+      imgUrl
+      price
+    }
+  }
+`;
