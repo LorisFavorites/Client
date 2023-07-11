@@ -20,8 +20,8 @@ export default function Nav() {
   return (
     <>
       <BrowserRouter>
-        <div className="name">
-          <h3>PokeFindr</h3>
+        <div className="name font-link">
+          <h3>PokéFindr | ポケッファインダ</h3>
         </div>
         <div
           className={`hamburger-icon ${isNavOpen ? "open" : ""}`}
@@ -44,8 +44,8 @@ export default function Nav() {
 
         {/* nav-bar will have a class of open adding to it if isNavOpen is true */}
         <div className={`nav-bar ${isNavOpen ? "open" : ""}`}>
-          <div className="nav-menu">
-            <h2 className="title-menu">PokeFindr</h2>
+          <div className="nav-menu font-link">
+            <h2 className="title-menu">PokéFindr</h2>
             <nav>
               <NavLink to="" activeClassName="active-link">
                 <div className="link">
