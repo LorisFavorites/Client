@@ -27,7 +27,7 @@ html {
 .nav-bar.open {
   display: flex;
   height: 100%;
-  width: 20%;
+  width: 200px;
   position: absolute;
   background-color: white;
   z-index: 2;
@@ -43,8 +43,9 @@ nav {
 
 .title-menu {
   position: absolute;
-  top: -22px;
+  top: -10px;
   left: 10px;
+  margin-bottom: 10px;
 }
 
 .nav-menu {
@@ -56,21 +57,22 @@ nav {
 .nav-menu a {
   color: #000;
   text-decoration: none;
-  font-size: 28px;
+  font-size: 15px;
   margin-bottom: 0px;
-  font-weight: 300;
+  font-weight: 900;
 }
 
 .link {
   display: flex;
   align-items: center;
+  margin-left: 20px;
 }
+
 
 .link p {
   position: relative;
-  right: -10px;
-  top: 5px;
-  height: 30px;
+  bottom: 8px;
+  height: 15px;
 }
 
 .nav-menu a.active-link {
@@ -105,7 +107,7 @@ nav {
 .x-icon.open {
   display: block;
   position: absolute;
-  left: 400px;
+  left: 170px;
   top: 0px;
   color: black;
   font-size: 25px;
@@ -185,7 +187,7 @@ nav {
 
 .testimonials .item:not(.active) {
   transform: translateY(-20%) perspective(200px) rotateY(-180deg) scale(0.9);
-  background-image: url("../public/card-back.png") !important;
+  background-image: url("../public/assets/card-back.png") !important;
   background-size: cover;
   background-position: center;
   background-color: transparent;
@@ -216,12 +218,12 @@ nav {
 }
 
 .prev-button {
-  background-image: url("../public/prev-unown.png");
+  background-image: url("../public/assets/prev-unown.png");
   margin-left: 10px;
 }
 
 .next-button {
-  background-image: url("../public/next-unown.png");
+  background-image: url("../public/assets/next-unown.png");
   margin-right: 10px;
 }
 
