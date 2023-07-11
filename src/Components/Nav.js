@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../App.css";
 import Header from "./Header";
 import Login from "./Login";
+import Cards from "./Cards";
 
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 
@@ -77,6 +78,10 @@ export default function Nav() {
         <Routes>
           <Route path="" element={<Header setIsNavOpen={setIsNavOpen} />} />
           <Route path="login" element={<Login setIsNavOpen={setIsNavOpen} />} />
+          <Route
+            path="myCards"
+            element={<Cards setIsNavOpen={setIsNavOpen} />}
+          />
         </Routes>
       </BrowserRouter>
     </>
