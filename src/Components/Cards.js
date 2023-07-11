@@ -5,3 +5,4 @@ export default function Cards({ setIsNavOpen }) {
     setIsNavOpen(false);
   }, []);
 }
+
