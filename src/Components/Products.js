@@ -3,18 +3,7 @@ import Loading from "./Loading";
 
 export default function Products(props) {
   const { data } = props;
-  const [isLoading, setIsLoading] = useState(true); // Add loading state
   const [cards, setCards] = useState([]);
-  const [splicedCards, setSplicedCards] = useState([]);
-  const cardsArray = [];
-
-
-  useEffect(() => {
-    if (cards) {
-      setIsLoading(false); // Mark loading as false when data is available
-    }
-    sortCards();
-  }, []);
 
   const sortCards = () => {
     let sortedCards = data.filter((card) => {
@@ -37,12 +26,11 @@ export default function Products(props) {
     console.log("Sort:", sortedCards);
     setCards(sortedCards);
     // setSplicedCards(cards.slice(0, 50));
-
   };
 
   return (
     <>
-      <div className="slider">
+      <div className="products">
         <div className="testimonials">
           {cards.slice(0, 50).map((testimonial, index) => {
             const classNames = `item active`;
@@ -56,10 +44,8 @@ export default function Products(props) {
               ></label>
             );
           })}
-        </div>
+        </div>      
       </div>
-      
-      <Products data={data} />
     </>
   );
 }
