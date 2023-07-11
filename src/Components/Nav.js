@@ -6,6 +6,11 @@ import Cards from "./Cards";
 
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 
+import homeUnown from "../assets/home.png";
+import loginUnown from "../assets/login.png";
+import cardUnown from "../assets/card.png";
+import accountUnown from "../assets/account.png";
+
 export default function Nav() {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
@@ -21,16 +26,17 @@ export default function Nav() {
   return (
     <>
       <BrowserRouter>
-        <div className="name font-link">
-          <h3>PokéFindr | ポケッファインダ</h3>
-        </div>
-        <div
-          className={`hamburger-icon ${isNavOpen ? "open" : ""}`}
-          onClick={toggleNav}
-        >
+        <div className="nav-header">
+          <div>
+            <h3 className="name font-link">Poké<span className="title-color-two">Findr</span> | ポケッファインダ</h3>
+          </div>
+          <div
+            className={`hamburger-icon ${isNavOpen ? "open" : ""}`}
+            onClick={toggleNav}
+          >
           <i className="fa-solid fa-bars"></i>
+          </div>
         </div>
-
         <div
           className={`x-icon ${isNavOpen ? "open" : ""}`}
           onClick={toggleNav}
@@ -46,30 +52,33 @@ export default function Nav() {
         {/* nav-bar will have a class of open adding to it if isNavOpen is true */}
         <div className={`nav-bar ${isNavOpen ? "open" : ""}`}>
           <div className="nav-menu font-link">
-            <h2 className="title-menu">PokéFindr</h2>
+            {/* <h2 className="title-menu">PokéFindr</h2> */}
             <nav>
               <NavLink to="" activeClassName="active-link">
                 <div className="link">
-                  <i class="fa-solid fa-house"></i>
+                <img className="unown-fat" src={homeUnown} alt="Home" />
                   <p>Home</p>
                 </div>
               </NavLink>
               <br />
               <NavLink to="login" activeClassName="active-link">
                 <div className="link">
-                  <i class="fa-solid fa-user"></i> <p>Login</p>
+                  <img className="unown-tall" src={loginUnown} alt="Login" />
+                  <p>Login</p>
                 </div>
               </NavLink>
               <br />
               <NavLink to="mycards" activeClassName="active-link">
                 <div className="link">
-                  <i class="fa-solid fa-bookmark"></i> <p>My Cards</p>
+                  <img className="unown-fat" src={cardUnown} alt="My Cards" />
+                  <p>My Cards</p>
                 </div>
               </NavLink>
               <br />
               <NavLink to="account" activeClassName="active-link">
                 <div className="link">
-                  <i class="fa-solid fa-gear"></i> <p>My Account</p>
+                  <img className="unown-account" src={accountUnown} alt="My Account" />
+                  <p>My Account</p>
                 </div>
               </NavLink>
             </nav>
