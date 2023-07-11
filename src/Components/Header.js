@@ -73,14 +73,14 @@ export default function Header({ setIsNavOpen }) {
       </div>
       <div className="buttons">
         <button className="prev-button" onClick={handlePrevClick}>
-          <i className="fa-solid fa-chevron-left"></i>
+          {/* <i className="fa-solid fa-chevron-left"></i> */}
         </button>
         <button className="next-button" onClick={handleNextClick}>
-          <i className="fa-solid fa-chevron-right"></i>
+          {/* <i className="fa-solid fa-chevron-right"></i> */}
         </button>
       </div>
 
       <Products data={data} />
     </>
   );
-}
+};
