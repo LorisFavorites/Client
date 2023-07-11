@@ -6,6 +6,10 @@ html {
   text-align: center;
 }
 
+.font-link {
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
 .name {
   position: absolute;
   color: white;
@@ -17,7 +21,7 @@ html {
 
 .nav-bar {
   display: none;
-  background-color: #222;
+  background-color: #000000;
 }
 
 .nav-bar.open {
