@@ -9,12 +9,13 @@ export default function Products(props) {
   const [splicedCards, setSplicedCards] = useState([]);
   const cardsArray = [];
 
-  const { loading, data1, error } = useQuery(QUERY_INVENTORY);
-  console.log("data1", data1);
+  const { loading, inv, error } = useQuery(QUERY_INVENTORY, {
+    variables: { inventory: "pokecards" },
+  });
+  console.log("data1", inv);
 
   useEffect(() => {
     if (cards) {
-      setIsLoading(false); // Mark loading as false when data is available
       sortCards();
     }
   }, []);
@@ -48,7 +49,7 @@ export default function Products(props) {
     return <div>Error</div>;
   }
 
-  const { inventories } = data1;
+  const inventories = inv;
 
   console.log("inventories", inventories);
 
