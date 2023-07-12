@@ -3,6 +3,7 @@ import "../App.css";
 import Header from "./Header";
 import Login from "./Login";
 import Cards from "./Cards";
+import AuthService from "../utils/auth.js";
 
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 
@@ -23,6 +24,12 @@ export default function Nav() {
     }
   };
 
+const handleLogout = () => {
+  AuthService.logout();
+};
+
+const isLoggedIn = AuthService.loggedIn();
+
   return (
     <>
       <BrowserRouter>
@@ -36,6 +43,11 @@ export default function Nav() {
           >
           <i className="fa-solid fa-bars"></i>
           </div>
+          {isLoggedIn && (
+            <div className="logout-button">
+              <button onClick={handleLogout}>Logout</button>
+            </div>
+            )}
         </div>
         <div
           className={`x-icon ${isNavOpen ? "open" : ""}`}

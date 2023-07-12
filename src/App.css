@@ -1,3 +1,7 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
 html {
   background-color: #222;
 }
@@ -7,7 +11,7 @@ html {
 }
 
 .font-link {
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
 }
 
 .name {
@@ -49,13 +53,6 @@ nav {
   width: 220px;
 }
 
-/* .title-menu {
-  position: absolute;
-  top: -10px;
-  left: 10px;
-  margin-bottom: 10px;
-} */
-
 .nav-menu {
   display: flex;
   flex-direction: column;
@@ -75,9 +72,13 @@ nav {
   display: flex;
   align-items: center;
   justify-content: left;
-  margin-left: 20px;
+  margin-left: 15px;
+  margin-right: 30px;
 }
 
+.link:hover {
+  background-color: #17419d82;
+}
 
 .link p {
   position: relative;
@@ -180,7 +181,7 @@ nav {
 .slider {
   background-color: #222;
   height: 70%;
-  color: white;
+  color: rgb(243, 242, 235);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -192,7 +193,6 @@ nav {
   align-items: center;
   justify-content: center;
   width: 100vw;
-  /* top: 10px; */
   padding: 8% 5% 5%;
   position: relative;
   overflow: hidden;
@@ -231,7 +231,6 @@ nav {
 .buttons {
   position: absolute;
   top: 40%;
-  /* transform: translateY(-30%); */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -317,6 +316,7 @@ nav {
   0% {
     transform: translate(-50%, -50%) rotate(0deg);
   }
+
   100% {
     transform: translate(-50%, -50%) rotate(360deg);
   }
@@ -325,7 +325,7 @@ nav {
 /* Products */
 
 .products {
-  border: 1px solid white;
+  border: 1px solid rgb(243, 242, 235);
   background-color: #fff;
   height: 500px;
 }
@@ -340,25 +340,27 @@ nav {
   top: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-  height: 90%;
+  height: 70%;
   background-color: #222;
   z-index: 0;
 }
 
 form {
   display: flex;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 10px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 100px;
-  width: 400px;
-  height: 400px;
+  width: 40%;
+  height: 90%;
   padding: 20px;
   border-radius: 15px;
-  background-color: white;
+  background-color: rgb(243, 242, 235);
   position: absolute;
   left: 50%;
-  top: 35%;
+  top: 20%;
   transform: translate(-50%, -50%);
 }
 
@@ -371,7 +373,8 @@ form {
 .button-login,
 .button-signup {
   width: 50%;
-  height: 55px;
+  font-family: "Noto Sans JP", sans-serif;
+  height: 30px;
   border: none;
   font-weight: 700;
   border-radius: 15px;
@@ -380,15 +383,17 @@ form {
 }
 
 .button-login:hover,
-.button-signup:hover {
+.button-signup:hover,
+form button:hover {
   cursor: pointer;
 }
 
 .button-login.active,
 .button-signup.active {
   background-color: grey;
-  opacity: 1; /* Change the active button color here */
-  color: white;
+  opacity: 1;
+  /* Change the active button color here */
+  color: rgb(243, 242, 235);
 }
 
 .button-login {
@@ -409,7 +414,6 @@ form h1 {
 }
 
 form input {
-  margin-top: 15px;
   margin-bottom: 7px;
   height: 30px;
   width: 100%;
@@ -421,8 +425,8 @@ form button {
   height: 35px;
   margin-top: 15px;
   border: none;
-  background-color: springgreen;
-  color: white;
+  background-color: rgb(23, 66, 157);
+  color: rgb(243, 242, 235);
   border-radius: 7px;
   font-weight: 700;
 }
@@ -461,12 +465,19 @@ form button {
   .buttons {
     display: none;
   }
+
   .testimonials {
     padding: 10% 0%;
   }
+
   .testimonials .item {
     margin: 0 0px;
-}}
+  }
+
+  form {
+    width: 50%;
+  }
+}
 
 @media screen and (max-width: 416px) {
   .nav-bar.open {
@@ -491,9 +502,13 @@ form button {
 
   .testimonials .item {
     position: absolute;
-    /* flex: 0 0 25%; */
+    flex: 0 0 25%;
     height: 350px;
     width: 250px;
+  }
+
+  form {
+    width: 75%;
   }
 }
 
