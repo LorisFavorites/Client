@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 /**
  * TODO: return favorites from profile query
@@ -41,7 +41,7 @@ export const QUERY_INVENTORY = gql`
       }
     }
   }
-`
+`;
 
 export const QUERY_FAVORITES = gql`
   query favorites {
