@@ -15,7 +15,7 @@ export default function Header({ setIsNavOpen }) {
   }, []);
 
   useEffect(() => {
-    console.log("Data:", data);
+    // console.log("Data:", data);
     if (data) {
       setIsLoading(false);
       setTestimonials(data.slice(0, 5));
