@@ -12,22 +12,22 @@ export default function Products(props) {
     return <Loading />;
   }
 
-  // Getting all cards that have a price greater than $15
+  // Getting all cards that have a price greater than $30
   const filteredCards = data.getInventory[0].cards.filter(
-    (card) => card.itemId.cardmarket.prices.trendPrice > 15
+    (card) => card.itemId.cardmarket.prices.trendPrice > 30
   );
 
-  // Slicing filteredCards to only show the first 16 cards enough for 3 rows while fullscreen
-  const cardsData = filteredCards.slice(0, 16);
+  // Slicing filteredCards to only show the first 15 cards enough for 5 rows while fullscreen
+  const cardsData = filteredCards.slice(0, 15);
 
   return (
     <div className="relative w-screen bg-white border-2 h-screen">
-      <div className="products w-2/4 mx-auto h-auto">
+      <div className="products w-3/4 mx-auto h-auto">
         <h1 className="text-center text-3xl font-bold m-5 underline">
           Our Products
         </h1>
         <br />
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-center m-5">
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-center m-5">
           {cardsData.map((card, index) => {
             return (
               <div key={index} className="relative h-128 inset-x-0">
