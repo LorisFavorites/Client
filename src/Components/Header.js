@@ -72,9 +72,9 @@ export default function Header({ setIsNavOpen }) {
                 onClick={() => handleTestimonialClick(index)}
               >
                 {isActive && (
-                  <button className="favorites-btn btn btn-primary" onClick={addtoFavorites}>
-                    Add to Favorites
-                  </button>
+              <button className="favorites-btn btn btn-primary" onClick={addtoFavorites}>
+                <i className="far fa-heart"></i>
+              </button>
                 )}
               </label>
             );
