@@ -17,8 +17,9 @@ html {
 .name {
   position: absolute;
   color: white;
-  top: -10px;
-  left: 50px;
+  top: 6px;
+  left: 45px;
+  color: white)
 }
 
 /* Nav Menu */
@@ -33,7 +34,11 @@ html {
   justify-content: space-between;
   align-items: center;
   background-color: rgb(20, 20, 20);
-  padding: 25px;
+  height: 45px;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  /* padding: 5px; */
 }
 
 .nav-bar.open {
@@ -95,10 +100,20 @@ nav {
   height: 30px;
 }
 
+.logout-button {
+  font-size: 14px;
+  margin-right: 10px;
+  color: rgb(243, 242, 235);
+}
+
+.logout-button:hover {
+  color: #db3e3e;
+}
+
 .hamburger-icon {
   position: absolute;
   left: 10px;
-  top: 5px;
+  top: 3px;
   color: rgb(243, 242, 235);
   font-size: 25px;
 }
@@ -109,6 +124,7 @@ nav {
 
 .hamburger-icon:hover {
   cursor: pointer;
+  color: #db3e3e;
 }
 
 .x-icon {
@@ -138,14 +154,14 @@ nav {
 
 .unown-tall {
   width: auto;
-  height: 15px;
+  height: 30px;
   margin-right: 13px;
   padding-bottom: 12px;
 }
 
 .unown-account {
   width: auto;
-  height: 15px;
+  height: 30px;
   margin-right: 15px;
   padding-bottom: 12px;
 }

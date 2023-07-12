@@ -5,7 +5,7 @@ import Login from "./Login";
 import Cards from "./Cards";
 import AuthService from "../utils/auth.js";
 
-import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
+import { BrowserRouter, Routes, Route, NavLink, Link } from "react-router-dom";
 
 import homeUnown from "../assets/home.png";
 import loginUnown from "../assets/login.png";
@@ -24,42 +24,39 @@ export default function Nav() {
     }
   };
 
-const handleLogout = () => {
-  AuthService.logout();
-};
+  const handleLogout = () => {
+    AuthService.logout();
+  };
 
-const isLoggedIn = AuthService.loggedIn();
+  const isLoggedIn = AuthService.loggedIn();
 
   return (
     <>
       <BrowserRouter>
         <div className="nav-header">
           <div>
-            <h3 className="name font-link">Poké<span className="title-color-two">Findr</span> | ポケッファインダ</h3>
+          <Link to="/" className="name font-link">
+              Poké<span className="title-color-two">Findr</span> | ポケッファインダ
+            </Link>
           </div>
-          <div
-            className={`hamburger-icon ${isNavOpen ? "open" : ""}`}
-            onClick={toggleNav}
-          >
-          <i className="fa-solid fa-bars"></i>
+          <div className={`hamburger-icon ${isNavOpen ? "open" : ""}`} onClick={toggleNav}>
+            <i className="fa-solid fa-bars"></i>
           </div>
-          {isLoggedIn && (
+          {isLoggedIn ? (
             <div className="logout-button">
               <button onClick={handleLogout}>Logout</button>
             </div>
-            )}
+          ) : (
+            <div className="logout-button">
+              <Link to="login">Login</Link>
+            </div>
+          )}
         </div>
-        <div
-          className={`x-icon ${isNavOpen ? "open" : ""}`}
-          onClick={toggleNav}
-        >
+        <div className={`x-icon ${isNavOpen ? "open" : ""}`} onClick={toggleNav}>
           <i class="fa-solid fa-xmark"></i>
         </div>
 
-        <div
-          className={`nav-background ${isNavOpen ? "open" : ""}`}
-          onClick={toggleNav}
-        ></div>
+        <div className={`nav-background ${isNavOpen ? "open" : ""}`} onClick={toggleNav}></div>
 
         {/* nav-bar will have a class of open adding to it if isNavOpen is true */}
         <div className={`nav-bar ${isNavOpen ? "open" : ""}`}>
@@ -68,7 +65,7 @@ const isLoggedIn = AuthService.loggedIn();
             <nav>
               <NavLink to="" activeClassName="active-link">
                 <div className="link">
-                <img className="unown-fat" src={homeUnown} alt="Home" />
+                  <img className="unown-fat" src={homeUnown} alt="Home" />
                   <p>Home</p>
                 </div>
               </NavLink>
@@ -99,10 +96,7 @@ const isLoggedIn = AuthService.loggedIn();
         <Routes>
           <Route path="" element={<Header isNavOpen={isNavOpen} setIsNavOpen={setIsNavOpen} />} />
           <Route path="login" element={<Login setIsNavOpen={setIsNavOpen} />} />
-          <Route
-            path="myCards"
-            element={<Cards setIsNavOpen={setIsNavOpen} />}
-          />
+          <Route path="myCards" element={<Cards setIsNavOpen={setIsNavOpen} />} />
         </Routes>
       </BrowserRouter>
     </>
