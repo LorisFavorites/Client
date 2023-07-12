@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 /**
  * TODO: return favorites from profile query
@@ -15,31 +15,33 @@ export const QUERY_SINGLE_PROFILE = gql`
 
 export const QUERY_INVENTORY = gql`
   query getInventory($inventory: String) {
-    _id
-    name
-    cards {
-      itemId {
-        id
-        name
-        flavorText
-        images {
-          large
-          small
-        }
-        cardmarket {
-          url
-          updatedAt
-          prices {
-            averageSellPrice
-            lowPrice
-            trendPrice
+    getInventory(inventory: $inventory) {
+      _id
+      name
+      cards {
+        itemId {
+          id
+          name
+          flavorText
+          images {
+            large
+            small
+          }
+          cardmarket {
+            url
+            updatedAt
+            prices {
+              averageSellPrice
+              lowPrice
+              trendPrice
+            }
           }
         }
+        stock
       }
-      stock
     }
   }
-`
+`;
 
 export const QUERY_FAVORITES = gql`
   query favorites {
