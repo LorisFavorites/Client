@@ -95,16 +95,6 @@ export default function Nav() {
                 </div>
               </NavLink>
               <br />
-              <NavLink to="account" activeClassName="active-link">
-                <div className="link">
-                  <img
-                    className="unown-account"
-                    src={accountUnown}
-                    alt="My Account"
-                  />
-                  <p>My Account</p>
-                </div>
-              </NavLink>
             </nav>
           </div>
         </div>
@@ -119,10 +109,6 @@ export default function Nav() {
           <Route
             path="myCards"
             element={<Cards setIsNavOpen={setIsNavOpen} />}
-          />
-          <Route
-            path="myAccount"
-            element={<Account setIsNavOpen={setIsNavOpen} />}
           />
         </Routes>
       </BrowserRouter>
