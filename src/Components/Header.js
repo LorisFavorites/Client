@@ -65,10 +65,13 @@ export default function Header(props) {
                   >
                     Add to Favorites
                   </button>
-              <button className="favorites-btn btn btn-primary" onClick={addtoFavorites}>
-                <i className="far fa-heart"></i>
-              </button>
                 )}
+                <button
+                  className="favorites-btn btn btn-primary"
+                  onClick={addtoFavorites}
+                >
+                  <i className="far fa-heart"></i>
+                </button>
               </label>
             );
           })}
