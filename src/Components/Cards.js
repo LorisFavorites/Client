@@ -7,4 +7,5 @@ export default function Cards({ setIsNavOpen }) {
   useEffect(() => {
     setIsNavOpen(false);
   }, []);
+  return <h1>Hello</h1>;
 }
