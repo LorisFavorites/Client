@@ -63,15 +63,9 @@ export default function Header(props) {
                     className="favorites-btn btn btn-primary"
                     onClick={addtoFavorites}
                   >
-                    Add to Favorites
+                    <i className="far fa-heart"></i>
                   </button>
                 )}
-                <button
-                  className="favorites-btn btn btn-primary"
-                  onClick={addtoFavorites}
-                >
-                  <i className="far fa-heart"></i>
-                </button>
               </label>
             );
           })}
@@ -82,13 +76,11 @@ export default function Header(props) {
           className="prev-button"
           onClick={(event) => handleClick("prev", -1)}
         >
-          {/* <i className="fa-solid fa-chevron-left"></i> */}
         </button>
         <button
           className="next-button"
           onClick={(event) => handleClick("next", 1)}
         >
-          {/* <i className="fa-solid fa-chevron-right"></i> */}
         </button>
       </div>
 
