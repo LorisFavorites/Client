@@ -15,28 +15,30 @@ export const QUERY_SINGLE_PROFILE = gql`
 
 export const QUERY_INVENTORY = gql`
   query getInventory($inventory: String) {
-    _id
-    name
-    cards {
-      itemId {
-        id
-        name
-        flavorText
-        images {
-          large
-          small
-        }
-        cardmarket {
-          url
-          updatedAt
-          prices {
-            averageSellPrice
-            lowPrice
-            trendPrice
+    getInventory(inventory: $inventory) {
+      _id
+      name
+      cards {
+        itemId {
+          id
+          name
+          flavorText
+          images {
+            large
+            small
+          }
+          cardmarket {
+            url
+            updatedAt
+            prices {
+              averageSellPrice
+              lowPrice
+              trendPrice
+            }
           }
         }
+        stock
       }
-      stock
     }
   }
 `
