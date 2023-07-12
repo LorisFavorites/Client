@@ -5,7 +5,6 @@ import { useQuery } from "@apollo/client";
 
 export default function Products(props) {
   const { data } = props;
-  const [isLoading, setIsLoading] = useState(true); // Add loading state
   const [cards, setCards] = useState([]);
   const [splicedCards, setSplicedCards] = useState([]);
   const cardsArray = [];
