@@ -3,6 +3,7 @@ import "../App.css";
 import Header from "./Header";
 import Login from "./Login";
 import Cards from "./Cards";
+import Account from "./Account";
 import AuthService from "../utils/auth.js";
 
 import { BrowserRouter, Routes, Route, NavLink, Link } from "react-router-dom";
@@ -34,11 +35,15 @@ export default function Nav() {
       <BrowserRouter>
         <div className="nav-header">
           <div>
-          <Link to="/" className="name font-link">
-              Poké<span className="title-color-two">Findr</span> | ポケッファインダ
+            <Link to="/" className="name font-link">
+              Poké<span className="title-color-two">Findr</span> |
+              ポケッファインダ
             </Link>
           </div>
-          <div className={`hamburger-icon ${isNavOpen ? "open" : ""}`} onClick={toggleNav}>
+          <div
+            className={`hamburger-icon ${isNavOpen ? "open" : ""}`}
+            onClick={toggleNav}
+          >
             <i className="fa-solid fa-bars"></i>
           </div>
           {isLoggedIn ? (
@@ -51,11 +56,17 @@ export default function Nav() {
             </div>
           )}
         </div>
-        <div className={`x-icon ${isNavOpen ? "open" : ""}`} onClick={toggleNav}>
+        <div
+          className={`x-icon ${isNavOpen ? "open" : ""}`}
+          onClick={toggleNav}
+        >
           <i class="fa-solid fa-xmark"></i>
         </div>
 
-        <div className={`nav-background ${isNavOpen ? "open" : ""}`} onClick={toggleNav}></div>
+        <div
+          className={`nav-background ${isNavOpen ? "open" : ""}`}
+          onClick={toggleNav}
+        ></div>
 
         {/* nav-bar will have a class of open adding to it if isNavOpen is true */}
         <div className={`nav-bar ${isNavOpen ? "open" : ""}`}>
@@ -85,7 +96,11 @@ export default function Nav() {
               <br />
               <NavLink to="account" activeClassName="active-link">
                 <div className="link">
-                  <img className="unown-account" src={accountUnown} alt="My Account" />
+                  <img
+                    className="unown-account"
+                    src={accountUnown}
+                    alt="My Account"
+                  />
                   <p>My Account</p>
                 </div>
               </NavLink>
@@ -93,9 +108,21 @@ export default function Nav() {
           </div>
         </div>
         <Routes>
-          <Route path="" element={<Header isNavOpen={isNavOpen} setIsNavOpen={setIsNavOpen} />} />
+          <Route
+            path=""
+            element={
+              <Header isNavOpen={isNavOpen} setIsNavOpen={setIsNavOpen} />
+            }
+          />
           <Route path="login" element={<Login setIsNavOpen={setIsNavOpen} />} />
-          <Route path="myCards" element={<Cards setIsNavOpen={setIsNavOpen} />} />
+          <Route
+            path="myCards"
+            element={<Cards setIsNavOpen={setIsNavOpen} />}
+          />
+          <Route
+            path="myAccount"
+            element={<Account setIsNavOpen={setIsNavOpen} />}
+          />
         </Routes>
       </BrowserRouter>
     </>
