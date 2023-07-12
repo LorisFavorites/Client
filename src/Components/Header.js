@@ -13,8 +13,7 @@ export default function Header(props) {
 
   useEffect(() => {
     setIsNavOpen(false);
-    document.documentElement.style.overflow = "auto"; // Enable scrolling
-  }, []);
+  }, [isNavOpen]);
 
   if (loading) {
     return <Loading />;
