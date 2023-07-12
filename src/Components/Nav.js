@@ -97,7 +97,7 @@ const isLoggedIn = AuthService.loggedIn();
           </div>
         </div>
         <Routes>
-          <Route path="" element={<Header setIsNavOpen={setIsNavOpen} />} />
+          <Route path="" element={<Header isNavOpen={isNavOpen} setIsNavOpen={setIsNavOpen} />} />
           <Route path="login" element={<Login setIsNavOpen={setIsNavOpen} />} />
           <Route
             path="myCards"
