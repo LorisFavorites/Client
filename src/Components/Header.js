@@ -72,9 +72,9 @@ export default function Header({ setIsNavOpen }) {
                 onClick={() => handleTestimonialClick(index)}
               >
                 {isActive && (
-              <button className="favorites-btn btn btn-primary" onClick={addtoFavorites}>
-                <i className="far fa-heart"></i>
-              </button>
+                  <button className="favorites-btn btn btn-primary" onClick={addtoFavorites}>
+                    <i className="far fa-heart"></i>
+                  </button>
                 )}
               </label>
             );
@@ -82,12 +82,8 @@ export default function Header({ setIsNavOpen }) {
         </div>
       </div>
       <div className="buttons">
-        <button className="prev-button" onClick={handlePrevClick}>
-          {/* <i className="fa-solid fa-chevron-left"></i> */}
-        </button>
-        <button className="next-button" onClick={handleNextClick}>
-          {/* <i className="fa-solid fa-chevron-right"></i> */}
-        </button>
+        <button className="prev-button" onClick={handlePrevClick}></button>
+        <button className="next-button" onClick={handleNextClick}></button>
       </div>
 
       <Products data={data} />
