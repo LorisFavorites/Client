@@ -35,9 +35,9 @@ export default function Nav() {
       <BrowserRouter>
         <div className="nav-header">
           <div>
-            <h3 className="name font-link">
+          <Link to="/" className="name font-link">
               Poké<span className="title-color-two">Findr</span> | ポケッファインダ
-            </h3>
+            </Link>
           </div>
           <div className={`hamburger-icon ${isNavOpen ? "open" : ""}`} onClick={toggleNav}>
             <i className="fa-solid fa-bars"></i>
