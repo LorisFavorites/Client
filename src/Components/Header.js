@@ -47,6 +47,10 @@ export default function Header({ setIsNavOpen }) {
     setCurrentIndex(index);
   };
 
+  const addtoFavorites = () => {
+    alert("Added to Favorites!");
+  }
+ 
   if (isLoading) {
     return <Loading />;
   }
@@ -65,8 +69,14 @@ export default function Header({ setIsNavOpen }) {
                 className={classNames}
                 htmlFor={`t-${testimonial}`}
                 style={{ backgroundImage: `url(${testimonial.images.small})` }}
-                onClick={() => handleTestimonialClick(index)} // Add onClick handler
-              ></label>
+                onClick={() => handleTestimonialClick(index)}
+              >
+                {isActive && (
+                  <button className="favorites-btn btn btn-primary" onClick={addtoFavorites}>
+                    Add to Favorites
+                  </button>
+                )}
+              </label>
             );
           })}
         </div>
