@@ -13,7 +13,7 @@ export default function Header(props) {
 
   useEffect(() => {
     setIsNavOpen(false);
-  }, []);
+  }, [isNavOpen]);
 
   if (loading) {
     return <Loading />;
@@ -63,15 +63,9 @@ export default function Header(props) {
                     className="favorites-btn btn btn-primary"
                     onClick={addtoFavorites}
                   >
-                    Add to Favorites
+                    <i className="far fa-heart"></i>
                   </button>
                 )}
-                <button
-                  className="favorites-btn btn btn-primary"
-                  onClick={addtoFavorites}
-                >
-                  <i className="far fa-heart"></i>
-                </button>
               </label>
             );
           })}
