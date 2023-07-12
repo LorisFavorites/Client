@@ -18,11 +18,11 @@ export default function Products(props) {
   );
 
   // Slicing filteredCards to only show the first 10 cards
-  const cardsData = filteredCards.slice(0, 10);
+  const cardsData = filteredCards.slice(0, 15);
 
   return (
     <div className="products">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center m-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center m-5">
         {cardsData.map((card, index) => {
           return (
             <div key={index} className="relative h-128 inset-x-0">
