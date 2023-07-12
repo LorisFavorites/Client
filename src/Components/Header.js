@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Products from "./Products";
 import Loading from "./Loading";
-import Deals from "./Deals";
 import { QUERY_INVENTORY } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 
@@ -15,7 +14,8 @@ export default function Header(props) {
   
   useEffect(() => {
     setIsNavOpen(false);
-  }, [isNavOpen]);
+    document.documentElement.style.overflow = "auto"; // Enable scrolling
+  }, []);
   
   if (loading) {
     return <Loading />;
