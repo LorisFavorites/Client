@@ -14,11 +14,28 @@ export const QUERY_SINGLE_PROFILE = gql`
 `;
 
 export const QUERY_INVENTORY = gql`
-  query inventories {
+  query getInventory($inventory: String) {
     _id
     name
     cards {
-      itemId
+      itemId {
+        id
+        name
+        flavorText
+        images {
+          large
+          small
+        }
+        cardmarket {
+          url
+          updatedAt
+          prices {
+            averageSellPrice
+            lowPrice
+            trendPrice
+          }
+        }
+      }
       stock
     }
   }
