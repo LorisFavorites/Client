@@ -4,8 +4,10 @@ import { QUERY_INVENTORY } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 
 export default function Products(props) {
-  const { loading, data } = useQuery(QUERY_INVENTORY, {
-    variables: { inventory: "pokecards" },
+  // const { data } = props;
+  const [cards, setCards] = useState([]);
+  const { loading, error, data } = useQuery(QUERY_INVENTORY, {
+    variables: { inventory: "pokecards" }
   });
 
   if (loading) {

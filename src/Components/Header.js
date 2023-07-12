@@ -1,65 +1,54 @@
 import React, { useEffect, useState } from "react";
 import Products from "./Products";
 import Loading from "./Loading";
-import axios from "axios";
+import Deals from "./Deals";
+import { QUERY_INVENTORY } from "../utils/queries";
+import { useQuery } from "@apollo/client";
 
-export default function Header({ setIsNavOpen }) {
+
+export default function Header(props) {
+  const { isNavOpen, setIsNavOpen } = props;
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [data, setData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [testimonials, setTestimonials] = useState([]);
-
+  const { loading, error, data } = useQuery(QUERY_INVENTORY, {
+    variables: { inventory: "pokecards" }
+  });
+  
   useEffect(() => {
     setIsNavOpen(false);
-    fetchData(1);
-  }, []);
+  }, [isNavOpen]);
+  
+  if (loading) {
+    return <Loading />;
+  }
 
-  useEffect(() => {
-    console.log("Data:", data);
-    if (data) {
-      setIsLoading(false);
-      setTestimonials(data.slice(0, 5));
+  if (error) {
+    return console.log("Error! ", error.message);
+  }
+
+  const handleClick = (indx, incr) => {
+    if (indx === 'curr') {
+      setCurrentIndex(incr);
+    } else {
+      if ( (currentIndex ==  0 && incr < 0) || (currentIndex == 4 && incr > 0) ) {
+        return;
+      }
+      setCurrentIndex(currentIndex + incr);
     }
-  }, [data]);
-
-  const fetchData = async (page) => {
-    try {
-      const response = await axios.get("https://api.pokemontcg.io/v2/cards", {
-        params: { page },
-      });
-      setData(response.data.data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-
-  const handlePrevClick = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length
-    );
-  };
-
-  const handleNextClick = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-  };
-
-  const handleTestimonialClick = (index) => {
-    setCurrentIndex(index);
   };
 
   const addtoFavorites = () => {
     alert("Added to Favorites!");
   }
- 
-  if (isLoading) {
-    return <Loading />;
-  }
+
+  const dailyDeals = data.getInventory[0].cards.slice(0,5);
+
+  console.log(dailyDeals)
 
   return (
     <>
       <div className="slider">
         <div className="testimonials">
-          {testimonials.map((testimonial, index) => {
+          {dailyDeals.map((daily, index) => {
             const isActive = index === currentIndex;
             const classNames = `item ${isActive ? "active" : ""}`;
 
@@ -67,9 +56,9 @@ export default function Header({ setIsNavOpen }) {
               <label
                 key={index}
                 className={classNames}
-                htmlFor={`t-${testimonial}`}
-                style={{ backgroundImage: `url(${testimonial.images.small})` }}
-                onClick={() => handleTestimonialClick(index)}
+                htmlFor={`t-${index}`}
+                style={{ backgroundImage: `url(${daily.itemId.images.small})` }}
+                onClick={(event) => handleClick('curr', index)}
               >
                 {isActive && (
                   <button className="favorites-btn btn btn-primary" onClick={addtoFavorites}>
@@ -82,15 +71,15 @@ export default function Header({ setIsNavOpen }) {
         </div>
       </div>
       <div className="buttons">
-        <button className="prev-button" onClick={handlePrevClick}>
+        <button className="prev-button" onClick={(event) => handleClick('prev', -1)}>
           {/* <i className="fa-solid fa-chevron-left"></i> */}
         </button>
-        <button className="next-button" onClick={handleNextClick}>
+        <button className="next-button" onClick={(event) => handleClick('next', 1)}>
           {/* <i className="fa-solid fa-chevron-right"></i> */}
         </button>
       </div>
 
-      <Products data={data} />
+      <Products />
     </>
   );
 };
