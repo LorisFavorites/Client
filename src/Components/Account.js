@@ -1,4 +1,4 @@
-import QUERY_SINGLE_PROFILE from "./QUERY_SINGLE_PROFILE";
+import QUERY_SINGLE_PROFILE from "../utils/queries";
 
 export default function Account() {
   return (
