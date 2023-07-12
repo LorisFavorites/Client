@@ -4,38 +4,45 @@ import { QUERY_INVENTORY } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 
 export default function Products(props) {
-  // const { data } = props;
-  const [cards, setCards] = useState([]);
-  const { loading, data, error } = useQuery(QUERY_INVENTORY, {
+  const { loading, data } = useQuery(QUERY_INVENTORY, {
     variables: { inventory: "pokecards" },
   });
 
   if (loading) {
     return <Loading />;
   }
-  if (error) {
-    console.log(error);
-  }
 
-  const cardsData = data.getInventory[0].cards.slice(0, 10);
-  console.log(cardsData);
+  // Getting all cards that have a price greater than $15
+  const filteredCards = data.getInventory[0].cards.filter(
+    (card) => card.itemId.cardmarket.prices.trendPrice > 15
+  );
+
+  // Slicing filteredCards to only show the first 10 cards
+  const cardsData = filteredCards.slice(0, 10);
 
   return (
     <div className="products">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-center m-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center m-4">
         {cardsData.map((card, index) => {
           return (
-            <div
-              key={index}
-              className="bg-gray-200 p-4 h-96"
-              style={{
-                backgroundImage: `url(${card.itemId.images.small})`,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "contain",
-                backgroundPosition: "center",
-              }}
-            >
-              {card.itemId.name}
+            <div key={index} className="relative h-128 inset-x-0">
+              <div>
+                <img
+                  src={card.itemId.images.small}
+                  alt="card"
+                  className="absolute left-1/2 -translate-x-2/4 top-0 h-3/4"
+                />
+              </div>
+              <div>
+                <p className="absolute bottom-14 inset-x-0">
+                  ${card.itemId.cardmarket.prices.trendPrice.toFixed(2)}
+                </p>
+                <br />
+                <br />
+                <button className="absolute bottom-3 left-1/2 -translate-x-2/4 inset-x-0 rounded-none bg-red-600 p-2 text-xs w-6/12">
+                  Add to cart
+                </button>
+              </div>
             </div>
           );
         })}
