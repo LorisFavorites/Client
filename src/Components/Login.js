@@ -4,6 +4,8 @@ import { useMutation } from "@apollo/client";
 import { ADD_PROFILE, LOGIN_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 import Loading from "./Loading";
+import { useHistory } from "react-router-dom";
+
 
 export default function Login({ setIsNavOpen }) {
   const [isLoading, setIsLoading] = useState(true);
