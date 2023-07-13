@@ -17,6 +17,7 @@ export default function Nav() {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   const toggleNav = () => {
+    setIsNavOpen(!isNavOpen);
     if (!isNavOpen) {
       document.documentElement.style.overflow = "hidden"; // Disable scrolling
     } else {

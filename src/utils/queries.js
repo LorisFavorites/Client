@@ -45,11 +45,24 @@ export const QUERY_INVENTORY = gql`
 
 export const QUERY_FAVORITES = gql`
   query favorites {
-    favorites {
+    avorites {
       _id
+      cardmarket {
+        prices {
+          averageSellPrice
+          lowPrice
+          trendPrice
+        }
+        updatedAt
+        url
+      }
+      flavorText
+      id
+      images {
+        large
+        small
+      }
       name
-      imgUrl
-      price
     }
   }
 `;
