@@ -19,13 +19,16 @@ export const LOGIN_USER = gql`
       profile {
         _id
         name
+        favorites {
+          _id
+        }
       }
     }
   }
 `;
 
 export const ADD_FAVORITE = gql`
-  mutation addFavorite($favorite: ID) {
+  mutation addFavorite($favorite: ID!) {
     addFavorite(favorite: $favorite) {
       favorites {
         name
@@ -35,7 +38,7 @@ export const ADD_FAVORITE = gql`
 `;
 
 export const REMOVE_FAVORITE = gql`
-  mutation removeFavorite($favorite: ID) {
+  mutation removeFavorite($favorite: ID!) {
     removeFavorite(favorite: $favorite) { 
       favorites {
         name

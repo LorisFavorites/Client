@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import Products from "./Products";
 import Loading from "./Loading";
 import { QUERY_INVENTORY } from "../utils/queries";
-import { useQuery } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
+import { ADD_FAVORITE, REMOVE_FAVORITE } from "../utils/mutations";
+import Card from "./Card";
 
 export default function Header(props) {
   const { isNavOpen, setIsNavOpen } = props;
@@ -10,6 +12,8 @@ export default function Header(props) {
   const { loading, error, data } = useQuery(QUERY_INVENTORY, {
     variables: { inventory: "pokecards" },
   });
+  const [addFavorite] = useMutation(ADD_FAVORITE);
+  const [removeFavorite] = useMutation(REMOVE_FAVORITE);
 
   useEffect(() => {
     setIsNavOpen(false);
@@ -35,8 +39,15 @@ export default function Header(props) {
     }
   };
 
-  const addtoFavorites = () => {
+  const addtoFavorites = async (favorite) => {
     alert("Added to Favorites!");
+    try {
+      const result = await addFavorite({ variables: { favorite: favorite } });
+
+      console.log(result);
+    } catch(err) {
+      console.log(err);
+    }
   };
 
   const dailyDeals = data.getInventory[0].cards.slice(0, 5);
@@ -52,6 +63,12 @@ export default function Header(props) {
             const classNames = `item ${isActive ? "active" : ""}`;
 
             return (
+              // <Card 
+              //   card={daily} 
+              //   index={index}
+              //   image={daily.itemId.images.small}
+              //   classNames={classNames}
+              // />
               <label
                 key={index}
                 className={classNames}
@@ -67,6 +84,12 @@ export default function Header(props) {
                     <i className="far fa-heart"></i>
                   </button>
                 )}
+                <button
+                  className="favorites-btn btn btn-primary"
+                  onClick={(event) => addtoFavorites(daily.itemId._id)}
+                >
+                  <i className="far fa-heart"></i>
+                </button>
               </label>
             );
           })}
