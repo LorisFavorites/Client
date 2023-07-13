@@ -3,7 +3,7 @@
 @import "tailwindcss/utilities";
 
 html {
-  background-color: #222;
+  background-color: #262626;
 }
 
 .App {
@@ -26,14 +26,14 @@ html {
 
 .nav-bar {
   display: none;
-  background-color: #000000;
+  background-color: #0a0a0a;
 }
 
 .nav-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(20, 20, 20);
+  background-color: #0a0a0a;
   height: 45px;
   font-family: "Noto Sans JP", sans-serif;
   font-size: 20px;
@@ -103,18 +103,18 @@ nav {
 .logout-button {
   font-size: 14px;
   margin-right: 10px;
-  color: rgb(243, 242, 235);
+  color: #fffbeb;
 }
 
 .logout-button:hover {
-  color: #db3e3e;
+  color: #dc2626;
 }
 
 .hamburger-icon {
   position: absolute;
   left: 10px;
   top: 3px;
-  color: rgb(243, 242, 235);
+  color: #fffbeb;
   font-size: 25px;
 }
 
@@ -124,7 +124,7 @@ nav {
 
 .hamburger-icon:hover {
   cursor: pointer;
-  color: #db3e3e;
+  color: #dc2626;
 }
 
 .x-icon {
@@ -175,7 +175,7 @@ nav {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: #222;
+  background-color: #262626;
   opacity: 0.5;
   z-index: 2;
 }
@@ -184,20 +184,20 @@ nav {
 
 .heading-title {
   position: absolute;
-  color: rgb(243, 242, 235);
+  color: #fffbeb;
   left: 50%;
   top: 10%;
   transform: translate(-50%, -50%);
 }
 
 .title-color-two {
-  color: #db3e3e;
+  color: #dc2626;
 }
 
 .slider {
-  background-color: #222;
+  background-color: #262626;
   height: 70%;
-  color: rgb(243, 242, 235);
+  color: #fffbeb;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -248,7 +248,7 @@ nav {
 
 .buttons {
   position: absolute;
-  top: 40%;
+  top: 30%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -342,11 +342,11 @@ nav {
 
 /* Products */
 
-.products {
-  border: 1px solid rgb(243, 242, 235);
+/* .products {
+  border: 1px solid #fffbeb;
   background-color: #fff;
   height: 500px;
-}
+} */
 
 /* Login */
 
@@ -359,7 +359,7 @@ nav {
   transform: translate(-50%, -50%);
   width: 100%;
   height: 70%;
-  background-color: #222;
+  background-color: #262626;
   z-index: 0;
 }
 
@@ -375,7 +375,7 @@ form {
   height: 95%;
   padding: 20px;
   border-radius: 15px;
-  background-color: rgb(243, 242, 235);
+  background-color: #fffbeb;
   position: absolute;
   left: 50%;
   top: 20%;
