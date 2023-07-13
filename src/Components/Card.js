@@ -30,7 +30,7 @@ export default function Card(props) {
 
     return (
         <>
-        <div key={index} className={classNames ? classNames : "relative h-128 inset-x-0"}>
+        <div key={index} className={classNames ? classNames : "bg-neutral-800 rounded-md relative h-128 inset-x-0"}>
                 <button
                   className="favorites-btn btn btn-primary"
                 >
@@ -40,13 +40,13 @@ export default function Card(props) {
                 <img
                 src={ (card.itemId) ? card.itemId.images.small : image }
                 alt="card"
-                className="absolute left-1/2 -translate-x-2/4 top-0 h-3/4 rounded-md"
+                className="rounded-md mt-4 absolute left-1/2 -translate-x-2/4 top-0 h-3/4"
                 />
             </div>
             {isFav ? 
             <div>
                 <button 
-                    className="absolute bottom-3 left-1/2 -translate-x-2/4 inset-x-0 rounded-none bg-red-600 p-2 text-s font-bold w-6/12"
+                    className="absolute bottom-3 left-1/2 -translate-x-2/4 inset-x-0 rounded-md bg-red-500 p-2 text-s font-bold w-6/12"
                     onClick={() => handleFavorite(card._id || card.itemId._id)}
                 >
                     Remove favorite
@@ -60,7 +60,7 @@ export default function Card(props) {
                 <br />
                 <br />
                 <button 
-                    className="absolute bottom-3 left-1/2 -translate-x-2/4 inset-x-0 rounded-none bg-red-600 p-2 text-s font-bold w-6/12"
+                    className="absolute bottom-3 left-1/2 -translate-x-2/4 inset-x-0 rounded-md bg-red-500 p-2 text-s font-bold w-6/12 hover:bg-red-900 hover:text-amber-50"
                     onClick={() => handleFavorite(card._id || card.itemId._id)}
                     >
                 Add to favorites

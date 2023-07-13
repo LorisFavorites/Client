@@ -43,12 +43,13 @@ html {
 
 .nav-bar.open {
   display: flex;
-  height: 100%;
+  height: 200px;
   width: 200px;
   position: absolute;
   background-color: rgb(243, 242, 235);
   z-index: 2;
   text-align: left;
+  border-bottom-right-radius: 7px;
 }
 
 nav {
@@ -258,7 +259,7 @@ nav {
 .prev-button,
 .next-button {
   width: 30px;
-  height: 30px;
+  height: 125px;
   border: none;
   background-color: transparent;
   background-repeat: no-repeat;
