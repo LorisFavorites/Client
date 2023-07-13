@@ -39,17 +39,6 @@ export default function Header(props) {
     }
   };
 
-  const addtoFavorites = async (favorite) => {
-    alert("Added to Favorites!");
-    try {
-      const result = await addFavorite({ variables: { favorite: favorite } });
-
-      console.log(result);
-    } catch(err) {
-      console.log(err);
-    }
-  };
-
   const dailyDeals = data.getInventory[0].cards.slice(0, 5);
 
   console.log(dailyDeals);
@@ -63,33 +52,15 @@ export default function Header(props) {
             const classNames = `item ${isActive ? "active" : ""}`;
 
             return (
-              // <Card 
-              //   card={daily.itemId} 
-              //   index={index}
-              //   image={daily.itemId.images.small}
-              //   classNames={classNames}
-              // />
-              <label
-                key={index}
-                className={classNames}
-                htmlFor={`t-${index}`}
-                style={{ backgroundImage: `url(${daily.itemId.images.small})` }}
-                onClick={(event) => handleClick("curr", index)}
-              >
-                {isActive ? ( <button
-                    className="favorites-btn btn btn-primary"
-                    onClick={addtoFavorites}
-                  >
-                    <i className="far fa-heart"></i>
-                  </button>
-                ) : ( <button
-                  className="favorites-btn btn btn-primary"
-                  onClick={(event) => addtoFavorites(daily.itemId._id)}
-                >
-                  <i className="far fa-heart"></i>
-                </button> )
-              }
-              </label>
+              <Card 
+                card={daily.itemId}
+                isDaily={true}
+                index={index}
+                image={daily.itemId.images.small}
+                classNames={classNames}
+                handleClick={handleClick}
+                isActive={isActive}
+              />
             );
           })}
         </div>
@@ -98,15 +69,11 @@ export default function Header(props) {
         <button
           className="prev-button"
           onClick={(event) => handleClick("prev", -1)}
-        >
-          {/* <i className="fa-solid fa-chevron-left"></i> */}
-        </button>
+        />
         <button
           className="next-button"
           onClick={(event) => handleClick("next", 1)}
-        >
-          {/* <i className="fa-solid fa-chevron-right"></i> */}
-        </button>
+        />
       </div>
 
       <Products />

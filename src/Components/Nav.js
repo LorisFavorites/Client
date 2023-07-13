@@ -42,7 +42,7 @@ export default function Nav() {
             </Link>
           </div>
           <div
-            className={`hamburger-icon ${isNavOpen ? "open" : ""}`}
+            className={`hamburger-icon`}
             onClick={toggleNav}
           >
             <i className="fa-solid fa-bars"></i>
