@@ -45,8 +45,9 @@ export const QUERY_INVENTORY = gql`
 
 export const QUERY_FAVORITES = gql`
   query favorites {
-    avorites {
+    favorites {
       _id
+      id
       cardmarket {
         prices {
           averageSellPrice
@@ -57,7 +58,6 @@ export const QUERY_FAVORITES = gql`
         url
       }
       flavorText
-      id
       images {
         large
         small
