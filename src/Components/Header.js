@@ -63,33 +63,36 @@ export default function Header(props) {
             const classNames = `item ${isActive ? "active" : ""}`;
 
             return (
-              // <Card 
-              //   card={daily.itemId} 
-              //   index={index}
-              //   image={daily.itemId.images.small}
-              //   classNames={classNames}
-              // />
-              <label
-                key={index}
-                className={classNames}
-                htmlFor={`t-${index}`}
-                style={{ backgroundImage: `url(${daily.itemId.images.small})` }}
-                onClick={(event) => handleClick("curr", index)}
-              >
-                {isActive ? ( <button
-                    className="favorites-btn btn btn-primary"
-                    onClick={addtoFavorites}
-                  >
-                    <i className="far fa-heart"></i>
-                  </button>
-                ) : ( <button
-                  className="favorites-btn btn btn-primary"
-                  onClick={(event) => addtoFavorites(daily.itemId._id)}
-                >
-                  <i className="far fa-heart"></i>
-                </button> )
-              }
-              </label>
+              <Card 
+                card={daily.itemId}
+                isDaily={true}
+                index={index}
+                image={daily.itemId.images.small}
+                classNames={classNames}
+                handleClick={handleClick}
+                isActive={isActive}
+              />
+              // <label
+              //   key={index}
+              //   className={classNames}
+              //   htmlFor={`t-${index}`}
+              //   style={{ backgroundImage: `url(${daily.itemId.images.small})` }}
+              //   onClick={(event) => handleClick("curr", index)}
+              // >
+              //   {isActive ? ( <button
+              //       className="favorites-btn btn btn-primary"
+              //       onClick={addtoFavorites}
+              //     >
+              //       <i className="far fa-heart"></i>
+              //     </button>
+              //   ) : ( <button
+              //     className="favorites-btn btn btn-primary"
+              //     onClick={(event) => addtoFavorites(daily.itemId._id)}
+              //   >
+              //     <i className="far fa-heart"></i>
+              //   </button> )
+              // }
+              // </label>
             );
           })}
         </div>
