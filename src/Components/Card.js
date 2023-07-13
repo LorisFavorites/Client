@@ -22,12 +22,6 @@ export default function Card(props) {
         }
     }
 
-    const addToFavorites = async (favorite) => {
-
-    }
-
-    // const remo
-
     return (
         <>
         <div key={index} className={classNames ? classNames : "bg-neutral-800 rounded-md relative h-128 inset-x-0"}>

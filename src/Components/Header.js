@@ -64,7 +64,7 @@ export default function Header(props) {
 
             return (
               // <Card 
-              //   card={daily} 
+              //   card={daily.itemId} 
               //   index={index}
               //   image={daily.itemId.images.small}
               //   classNames={classNames}
@@ -76,20 +76,19 @@ export default function Header(props) {
                 style={{ backgroundImage: `url(${daily.itemId.images.small})` }}
                 onClick={(event) => handleClick("curr", index)}
               >
-                {isActive && (
-                  <button
+                {isActive ? ( <button
                     className="favorites-btn btn btn-primary"
                     onClick={addtoFavorites}
                   >
                     <i className="far fa-heart"></i>
                   </button>
-                )}
-                <button
+                ) : ( <button
                   className="favorites-btn btn btn-primary"
                   onClick={(event) => addtoFavorites(daily.itemId._id)}
                 >
                   <i className="far fa-heart"></i>
-                </button>
+                </button> )
+              }
               </label>
             );
           })}
