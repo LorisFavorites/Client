@@ -6,7 +6,7 @@ import AuthService from "../utils/auth";
 import Card from './Card';
 
 export default function Products(props) {
-  const { setIsNavOpen } = props;
+  const { setIsNavOpen, isLoggedIn } = props;
   const [cards, setCards] = useState([]);
   const favList  = useQuery(QUERY_ACCOUNT);
   // const { account } = { favorites.data };
@@ -21,6 +21,16 @@ export default function Products(props) {
 
   if (loading) {
     return <Loading />;
+  }
+
+  if(!isLoggedIn) {
+    return(
+      <>
+        <h1 className="bg-neutral-900 pt-2 pb-4 rounded-md text-center text-amber-50 text-xl font-bold">
+          You must be <span className="text-red-500">Logged in</span> to view this page!
+        </h1>
+      </>
+    )
   }
 
   console.log(data.favorites);

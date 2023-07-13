@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../App.css";
 import Header from "./Header";
 import Login from "./Login";
@@ -12,9 +12,25 @@ import homeUnown from "../assets/home.png";
 import loginUnown from "../assets/login.png";
 import cardUnown from "../assets/card.png";
 import accountUnown from "../assets/account.png";
+import { useQuery } from "@apollo/client";
+import { QUERY_ACCOUNT, QUERY_INVENTORY } from "../utils/queries";
 
 export default function Nav() {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [favoritesList, setFavoritesList] = useState([]);
+  const account = useQuery(QUERY_ACCOUNT);
+  const { loading, error, data } = useQuery(QUERY_INVENTORY, {
+    variables: { inventory: "pokecards" },
+  });
+
+  useEffect(() => {
+    if(account.data) {
+      const list = account.data.account.favorites.map((card) => card._id);
+      setFavoritesList(list);
+      // const { account } = data;
+      console.log("Account favorites: ", list);
+    }
+  }, []);
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
@@ -102,13 +118,26 @@ export default function Nav() {
           <Route
             path=""
             element={
-              <Header isNavOpen={isNavOpen} setIsNavOpen={setIsNavOpen} />
+              <Header 
+                isNavOpen={isNavOpen} 
+                setIsNavOpen={setIsNavOpen}
+                favoritesList={favoritesList}
+                setFavoritesList={setFavoritesList}
+                loading={loading}
+                error={error}
+                data={data}
+              />
             }
           />
           <Route path="login" element={<Login setIsNavOpen={setIsNavOpen} />} />
           <Route
             path="myCards"
-            element={<Cards setIsNavOpen={setIsNavOpen} />}
+            element={<Cards 
+              isLoggedIn={isLoggedIn} 
+              setIsNavOpen={setIsNavOpen} 
+              favoritesList={favoritesList}
+              setFavoritesList={setFavoritesList}
+              />}
           />
         </Routes>
       </BrowserRouter>
