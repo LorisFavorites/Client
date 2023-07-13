@@ -6,13 +6,18 @@ import AuthService from "../utils/auth";
 import Card from './Card';
 
 export default function Products(props) {
-  // const { data } = props;
+  const { setIsNavOpen } = props;
   const [cards, setCards] = useState([]);
   const favList  = useQuery(QUERY_ACCOUNT);
   // const { account } = { favorites.data };
   const { loading, error, data } = useQuery(QUERY_FAVORITES, {
     variables: { inventory: "pokecards" }
   });
+
+  useEffect(() => {
+    setIsNavOpen(false);
+    document.documentElement.style.overflow = "auto"; // Enable scrolling
+  }, []);
 
   if (loading) {
     return <Loading />;
