@@ -6,7 +6,6 @@ import Auth from "../utils/auth";
 import Loading from "./Loading";
 import { useHistory } from "react-router-dom";
 
-
 export default function Login({ setIsNavOpen }) {
   const [isLoading, setIsLoading] = useState(true);
   const [activeButton, setActiveButton] = useState("login");
@@ -78,104 +77,104 @@ export default function Login({ setIsNavOpen }) {
   }
 
   return (
-    <div className="login">
-      <form onSubmit={handleFormSubmit}>
-        <div className="login-signup">
-          <button
-            className={`button-login ${
-              activeButton === "login" ? "active" : ""
-            }`}
-            onClick={(event) => handleButtonClick("login", event)}
-          >
-            Login
-          </button>
-          <button
-            className={`button-signup ${
-              activeButton === "signup" ? "active" : ""
-            }`}
-            onClick={(event) => handleButtonClick("signup", event)}
-          >
-            Sign Up
-          </button>
-        </div>
-        <h1 className="form-title">{activeButton === "signup" ? "Sign Up" : "Login"}</h1>
-        {activeButton === "signup" && (
-          // Sign up form variant
-          <>
-            <input 
-              type="email" 
-              placeholder="Email" 
-              name="email" 
-              value={formData.email} 
-              onChange={(event) => handleInput('email', event.target.value)}
-              autoComplete="false"
-            />
-            <input 
-              type="text" 
-              placeholder="Name" 
-              name="name" 
-              value={formData.name} 
-              onChange={(event) => handleInput('name', event.target.value)}
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              className={`pass-input ${!(passwordMatch) ? "error" : ""}`}
-              value={formData.password}
-              onChange={(event) => handleInput('password', event.target.value)}
-              autoComplete="false"
-            />
-            <input
-              type="password"
-              placeholder="Confirm Password"
-              className={`confirm-pass ${
-                !passwordMatch ? "error" : ""
+      <div className="login">
+        <form onSubmit={handleFormSubmit}>
+          <div className="login-signup">
+            <button
+              className={`button-login ${
+                activeButton === "login" ? "active" : ""
               }`}
-              value={formData.confirmPass}
-              onChange={(event) => handleInput('confirmPass', event.target.value)}
-            />
-             {(!passwordMatch) && (
-              <p
-                style={{
-                  fontSize: "12px",
-                  color: "red",
-                }}
-              >
-                Passwords do not match
-              </p>
-            )}
-            {(passwordMatch && !passwordEmpty) && (
-              <p
-                style={{
-                  fontSize: "12px",
-                  color: "green",
-                }}
-              >
-                Passwords match
-              </p>
-            )}
-          </>
-        )}
-        {activeButton === "login" && (
-          // Login form variant
-          <>
-            <input 
-              type="email" 
-              placeholder="Email" 
-              name="email" value={formData.email} 
-              onChange={(event) => handleInput('email', event.target.value)} 
-            />
-            <input 
-              type="password" 
-              placeholder="Password" 
-              name="password" 
-              value={formData.password} 
-              onChange={(event) => handleInput('password', event.target.value)} 
-            />
-          </>
-        )}
-        <button className="form-button" type="submit">Submit</button>
-      </form>
-    </div>
+              onClick={(event) => handleButtonClick("login", event)}
+            >
+              Login
+            </button>
+            <button
+              className={`button-signup ${
+                activeButton === "signup" ? "active" : ""
+              }`}
+              onClick={(event) => handleButtonClick("signup", event)}
+            >
+              Sign Up
+            </button>
+          </div>
+          <h1 className="form-title">{activeButton === "signup" ? "Sign Up" : "Login"}</h1>
+          {activeButton === "signup" && (
+            // Sign up form variant
+            <>
+              <input 
+                type="email" 
+                placeholder="Email" 
+                name="email" 
+                value={formData.email} 
+                onChange={(event) => handleInput('email', event.target.value)}
+                autoComplete="false"
+              />
+              <input 
+                type="text" 
+                placeholder="Name" 
+                name="name" 
+                value={formData.name} 
+                onChange={(event) => handleInput('name', event.target.value)}
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                className={`pass-input ${!(passwordMatch) ? "error" : ""}`}
+                value={formData.password}
+                onChange={(event) => handleInput('password', event.target.value)}
+                autoComplete="false"
+              />
+              <input
+                type="password"
+                placeholder="Confirm Password"
+                className={`confirm-pass ${
+                  !passwordMatch ? "error" : ""
+                }`}
+                value={formData.confirmPass}
+                onChange={(event) => handleInput('confirmPass', event.target.value)}
+              />
+              {(!passwordMatch) && (
+                <p
+                  style={{
+                    fontSize: "12px",
+                    color: "red",
+                  }}
+                >
+                  Passwords do not match
+                </p>
+              )}
+              {(passwordMatch && !passwordEmpty) && (
+                <p
+                  style={{
+                    fontSize: "12px",
+                    color: "green",
+                  }}
+                >
+                  Passwords match
+                </p>
+              )}
+            </>
+          )}
+          {activeButton === "login" && (
+            // Login form variant
+            <>
+              <input 
+                type="email" 
+                placeholder="Email" 
+                name="email" value={formData.email} 
+                onChange={(event) => handleInput('email', event.target.value)} 
+              />
+              <input 
+                type="password" 
+                placeholder="Password" 
+                name="password" 
+                value={formData.password} 
+                onChange={(event) => handleInput('password', event.target.value)} 
+              />
+            </>
+          )}
+          <button className="form-button" type="submit">Submit</button>
+        </form>
+      </div>
   );
 }
