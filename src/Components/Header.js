@@ -13,7 +13,8 @@ export default function Header(props) {
 
   useEffect(() => {
     setIsNavOpen(false);
-  }, []);
+    document.documentElement.style.overflow = "auto"; // Enable scrolling
+  }, [isNavOpen]);
 
   if (loading) {
     return <Loading />;
@@ -76,11 +77,13 @@ export default function Header(props) {
           className="prev-button"
           onClick={(event) => handleClick("prev", -1)}
         >
+          {/* <i className="fa-solid fa-chevron-left"></i> */}
         </button>
         <button
           className="next-button"
           onClick={(event) => handleClick("next", 1)}
         >
+          {/* <i className="fa-solid fa-chevron-right"></i> */}
         </button>
       </div>
 
