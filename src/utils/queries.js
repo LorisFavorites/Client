@@ -20,6 +20,7 @@ export const QUERY_INVENTORY = gql`
       name
       cards {
         itemId {
+          _id
           id
           name
           flavorText
@@ -66,3 +67,13 @@ export const QUERY_FAVORITES = gql`
     }
   }
 `;
+
+export const QUERY_ACCOUNT = gql`
+  query account {
+    account {
+      favorites {
+        _id
+      }
+    }
+  }
+`

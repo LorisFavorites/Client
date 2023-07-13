@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Loading from "./Loading";
-import { QUERY_INVENTORY } from "../utils/queries";
+import { QUERY_ACCOUNT, QUERY_INVENTORY } from "../utils/queries";
 import { useQuery } from "@apollo/client";
+import AuthService from "../utils/auth";
 
 export default function Products(props) {
   // const { data } = props;
   const [cards, setCards] = useState([]);
+  const favList  = useQuery(QUERY_ACCOUNT);
+  // const { account } = { favorites.data };
   const { loading, error, data } = useQuery(QUERY_INVENTORY, {
     variables: { inventory: "pokecards" }
   });
@@ -13,6 +16,13 @@ export default function Products(props) {
   if (loading) {
     return <Loading />;
   }
+
+  // if ( AuthService.loggedIn ) {
+  //   console.log("User is logged in");
+  //   console.log(favList.data);
+  //   const { favorites } = favList.data.account;
+  //   console.log(favorites);
+  // }
 
   // Getting all cards that have a price greater than $30
   const filteredCards = data.getInventory[0].cards.filter(
