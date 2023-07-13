@@ -38,7 +38,6 @@ export default function Header(props) {
   };
 
   const addtoFavorites = async (favorite) => {
-    console.log(favorite);
     alert("Added to Favorites!");
     try {
       const result = await addFavorite({ variables: { favorite: favorite } });
