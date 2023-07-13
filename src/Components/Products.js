@@ -34,7 +34,7 @@ export default function Products(props) {
   const cardsData = filteredCards.slice(0, 15);
 
   return (
-    <div className="pt-4 relative w-1/1 bg-gradient-to-r from-neutral-600 to-neutral-700 h-max border-x-8 border-t-8 border-neutral-800">
+    <div className="pt-4 relative w-1/1 bg-neutral-800 h-max border-x-8 border-y-8 border-neutral-900">
       <div className="products w-3/4 mx-auto h-auto">
         <h1 className="bg-neutral-900 pt-2 pb-4 rounded-md text-center text-amber-50 text-xl font-bold">
         █████ <span className="text-red-500">Catch</span> ███ ████ | ポケモンゲットだぜ! 
