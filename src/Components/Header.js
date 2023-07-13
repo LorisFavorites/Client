@@ -3,17 +3,15 @@ import Products from "./Products";
 import Loading from "./Loading";
 import { QUERY_INVENTORY } from "../utils/queries";
 import { useMutation, useQuery } from "@apollo/client";
-import { ADD_FAVORITE, REMOVE_FAVORITE } from "../utils/mutations";
 import Card from "./Card";
 
 export default function Header(props) {
-  const { isNavOpen, setIsNavOpen } = props;
+  const { isNavOpen, setIsNavOpen, favoritesList, setFavoritesList } = props;
   const [currentIndex, setCurrentIndex] = useState(0);
-  const { loading, error, data } = useQuery(QUERY_INVENTORY, {
-    variables: { inventory: "pokecards" },
-  });
-  const [addFavorite] = useMutation(ADD_FAVORITE);
-  const [removeFavorite] = useMutation(REMOVE_FAVORITE);
+  // const { loading, error, data } = useQuery(QUERY_INVENTORY, {
+  //   variables: { inventory: "pokecards" },
+  // });
+  const { loading, error, data } = props;
 
   useEffect(() => {
     setIsNavOpen(false);
@@ -41,7 +39,7 @@ export default function Header(props) {
 
   const dailyDeals = data.getInventory[0].cards.slice(0, 5);
 
-  console.log(dailyDeals);
+  console.log("Todays deals:", dailyDeals);
 
   return (
     <>
@@ -76,7 +74,13 @@ export default function Header(props) {
         />
       </div>
 
-      <Products />
+      <Products
+        favoritesList={favoritesList}
+        setFavoritesList={setFavoritesList}
+        loading={loading}
+        error={error}
+        data={data}
+      />
     </>
   );
 }
