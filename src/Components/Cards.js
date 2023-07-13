@@ -27,9 +27,9 @@ export default function Products(props) {
   const cardsData = data.favorites;
 
   return (
-    <div className="relative w-screen bg-neutral-800 border-2 h-max">
+    <div className="relative w-screen bg-neutral-800 h-max border-x-8 border-y-8 border-neutral-900">
       <div className="products w-3/4 mx-auto h-auto">
-        <h1 className="text-center text-amber-50 font-bold text-2xl m-5">
+        <h1 className="bg-neutral-900 pt-2 pb-4 rounded-md text-center text-amber-50 text-xl font-bold">
           My <span className="text-red-500">Favorite</span> Cards
         </h1>
         <h1 className="text-center text-amber-50 text-2xl m-5">

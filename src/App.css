@@ -211,7 +211,7 @@ nav {
   align-items: center;
   justify-content: center;
   width: 100vw;
-  padding: 8% 5% 5%;
+  padding: 5% 5% 2%;
   position: relative;
   overflow: hidden;
 }
@@ -250,7 +250,7 @@ nav {
 
 .buttons {
   position: absolute;
-  top: 40%;
+  top: 35%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -261,9 +261,9 @@ nav {
 .next-button {
   width: 30px;
   height: 30px;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   border: none;
-  background-color: #1e293b;
+  /* background-color: #1e293b; */
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -275,13 +275,13 @@ nav {
 .prev-button {
   background-image: url("../public/assets/prev-unown.png");
   margin-left: 20px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
 }
 
 .next-button {
   background-image: url("../public/assets/next-unown.png");
   margin-right: 20px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
 }
 
 .prev-button:hover,
@@ -516,7 +516,7 @@ form input {
 
 /* Media Queries */
 
-@media screen and (min-width: 2000px) {
+/* @media screen and (min-width: 2000px) {
   .testimonials {
     height: 500px;
     margin-top: -10px;
@@ -526,7 +526,7 @@ form input {
     height: 450px !important;
     width: 50% !important;
   }
-}
+} */
 
 @media screen and (max-width: 600px) {
   .buttons {
