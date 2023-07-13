@@ -24,7 +24,7 @@ export default function Card(props) {
 
     return (
         <>
-        <div key={index} className={classNames ? classNames : "bg-neutral-800 rounded-md relative h-128 inset-x-0"}>
+        <div key={index} className={classNames ? classNames : "bg-gradient-to-r from-neutral-900 to-neutral-800 rounded-md relative h-128 inset-x-0"}>
                 <button
                   className="favorites-btn btn btn-primary"
                 >
