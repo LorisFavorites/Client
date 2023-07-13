@@ -38,7 +38,7 @@ export default function Products(props) {
               index={index} 
               image={card.images.small} 
               price={card.cardmarket.prices.trendPrice}
-              fav={true} 
+              isFav={true} 
             />
           })}
         </div>

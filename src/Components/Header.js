@@ -4,6 +4,7 @@ import Loading from "./Loading";
 import { QUERY_INVENTORY } from "../utils/queries";
 import { useMutation, useQuery } from "@apollo/client";
 import { ADD_FAVORITE, REMOVE_FAVORITE } from "../utils/mutations";
+import Card from "./Card";
 
 export default function Header(props) {
   const { isNavOpen, setIsNavOpen } = props;
@@ -62,6 +63,12 @@ export default function Header(props) {
             const classNames = `item ${isActive ? "active" : ""}`;
 
             return (
+              // <Card 
+              //   card={daily} 
+              //   index={index}
+              //   image={daily.itemId.images.small}
+              //   classNames={classNames}
+              // />
               <label
                 key={index}
                 className={classNames}
