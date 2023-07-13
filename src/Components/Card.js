@@ -46,7 +46,7 @@ export default function Card(props) {
             {isFav ? 
             <div>
                 <button 
-                    className="absolute bottom-3 left-1/2 -translate-x-2/4 inset-x-0 rounded-md bg-red-500 p-2 text-s font-bold w-6/12"
+                    className="absolute bottom-3 left-1/2 -translate-x-2/4 inset-x-0 rounded-md bg-red-500 p-2 text-s font-bold w-6/12 hover:bg-red-900 hover:text-amber-50"
                     onClick={() => handleFavorite(card._id || card.itemId._id)}
                 >
                     Remove favorite

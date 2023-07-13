@@ -473,6 +473,37 @@ form input {
   margin-top: -7px;
 }
 
+/* Footer */
+
+.foot-container {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 8px;
+  color: #fffbeb;
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  justify-content: center;
+  background-color: #141414;
+}
+
+.github {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  background-color: #141414;
+}
+
+.logo {
+  display: flex;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  background-color: #141414;
+}
+
 /* Media Queries */
 
 @media screen and (min-width: 2000px) {

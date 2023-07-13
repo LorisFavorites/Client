@@ -1,6 +1,7 @@
 import Nav from "./Components/Nav";
 import "./App.css";
 import React from "react";
+import Footer from "./Components/Footer";
 import {
   ApolloClient,
   InMemoryCache,
@@ -35,6 +36,7 @@ function App() {
     <ApolloProvider client={client}>
       <div className="App">
         <Nav />
+        <Footer />
       </div>
     </ApolloProvider>
   );
