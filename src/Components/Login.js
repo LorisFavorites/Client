@@ -53,7 +53,7 @@ export default function Login({ setIsNavOpen }) {
         const { data } = await signup({ variables: { ...formData } });
 
         // If signup was succesful store token using the auth login
-        Auth.login(data.signup.token);
+        Auth.login(data.addProfile.token);
       } catch (err) {
         console.log(err);
       }
