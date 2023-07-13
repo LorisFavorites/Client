@@ -34,10 +34,10 @@ export default function Products(props) {
   const cardsData = filteredCards.slice(0, 15);
 
   return (
-    <div className="relative w-screen bg-white border-2 h-screen">
+    <div className="relative w-screen bg-neutral-800 border-2 h-max">
       <div className="products w-3/4 mx-auto h-auto">
-        <h1 className="text-center text-3xl font-bold m-5 underline">
-          Our Products
+        <h1 className="text-center text-amber-50 text-2xl font-bold m-5">
+        █████ <span className="text-red-500">█████</span> ███ ████ | ポケモンゲットだぜ! 
         </h1>
         <br />
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-center m-5">

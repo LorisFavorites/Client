@@ -98,7 +98,7 @@ export default function Login({ setIsNavOpen }) {
             Sign Up
           </button>
         </div>
-        <h1>{activeButton === "signup" ? "Sign Up" : "Login"}</h1>
+        <h1 className="form-title">{activeButton === "signup" ? "Sign Up" : "Login"}</h1>
         {activeButton === "signup" && (
           // Sign up form variant
           <>
@@ -174,7 +174,7 @@ export default function Login({ setIsNavOpen }) {
             />
           </>
         )}
-        <button type="submit">Submit</button>
+        <button className="form-button" type="submit">Submit</button>
       </form>
     </div>
   );

@@ -16,7 +16,8 @@ export default function Header(props) {
 
   useEffect(() => {
     setIsNavOpen(false);
-  }, []);
+    document.documentElement.style.overflow = "auto"; // Enable scrolling
+  }, [isNavOpen]);
 
   if (loading) {
     return <Loading />;
@@ -73,7 +74,7 @@ export default function Header(props) {
                     className="favorites-btn btn btn-primary"
                     onClick={addtoFavorites}
                   >
-                    Add to Favorites
+                    <i className="far fa-heart"></i>
                   </button>
                 )}
                 <button
